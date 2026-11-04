@@ -1,0 +1,129 @@
+{
+  "id": "19f7bba6-773a-464f-8282-c7c2cb61fd20",
+  "name": "costCentre",
+  "type": "PackComponent",
+  "pageId": "4e58c2fe-f32d-4127-a8ee-c61d73533e23",
+  "parent": "80aa7540-8c2a-474b-8268-ca7bc7d12ce5-body",
+  "properties": {
+    "label": {
+      "value": "Cost centre"
+    },
+    "description": {
+      "value": ""
+    },
+    "options": {
+      "value": [
+        {
+          "label": "ENG-100 · Engineering",
+          "value": "ENG-100"
+        },
+        {
+          "label": "DES-300 · Design",
+          "value": "DES-300"
+        },
+        {
+          "label": "MKT-200 · Marketing",
+          "value": "MKT-200"
+        },
+        {
+          "label": "SLS-400 · Sales",
+          "value": "SLS-400"
+        },
+        {
+          "label": "OPS-500 · Operations",
+          "value": "OPS-500"
+        },
+        {
+          "label": "FIN-600 · Finance",
+          "value": "FIN-600"
+        }
+      ]
+    },
+    "allowClear": {
+      "value": "{{true}}"
+    },
+    "placeholder": {
+      "value": "Choose a cost centre"
+    },
+    "defaultValue": {
+      "value": ""
+    },
+    "selectedOption": {
+      "value": "{{{}}}"
+    },
+    "selectedLabel": {
+      "value": ""
+    },
+    "disabled": {
+      "value": "{{false}}"
+    },
+    "visibility": {
+      "value": "{{true}}"
+    },
+    "loadingState": {
+      "value": "{{false}}"
+    },
+    "disabledState": {
+      "value": "{{false}}"
+    },
+    "dynamicHeight": {
+      "value": "{{true}}"
+    },
+    "pack": {
+      "value": "shadcn"
+    },
+    "componentName": {
+      "value": "Select"
+    }
+  },
+  "general": {},
+  "styles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "generalStyles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "displayPreferences": {
+    "showOnDesktop": {
+      "value": "{{true}}"
+    },
+    "showOnMobile": {
+      "value": "{{false}}"
+    }
+  },
+  "validation": {},
+  "layouts": [
+    {
+      "id": "ed1e9778-ea74-4c5b-b324-bbe0492c0572",
+      "type": "desktop",
+      "top": 8,
+      "left": 17,
+      "width": 12,
+      "height": 40,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "19f7bba6-773a-464f-8282-c7c2cb61fd20",
+      "dimensionUnit": "count"
+    },
+    {
+      "id": "24f87d91-325e-4e55-9a20-ff0f31912a0c",
+      "type": "mobile",
+      "top": 8,
+      "left": 17,
+      "width": 12,
+      "height": 40,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "19f7bba6-773a-464f-8282-c7c2cb61fd20",
+      "dimensionUnit": "count"
+    }
+  ]
+}

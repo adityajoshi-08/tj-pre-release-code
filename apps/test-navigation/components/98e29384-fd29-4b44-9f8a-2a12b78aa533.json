@@ -1,0 +1,135 @@
+{
+  "id": "98e29384-fd29-4b44-9f8a-2a12b78aa533",
+  "name": "neededBy",
+  "type": "PackComponent",
+  "pageId": "4e58c2fe-f32d-4127-a8ee-c61d73533e23",
+  "parent": "550f072b-2499-4e0c-aa72-e2ca839340df-body",
+  "properties": {
+    "label": {
+      "value": "Needed by"
+    },
+    "description": {
+      "value": ""
+    },
+    "mode": {
+      "value": "single"
+    },
+    "placeholder": {
+      "value": "Pick a date"
+    },
+    "defaultValue": {
+      "fxActive": true,
+      "value": "{{moment().add(14, 'days').format('YYYY-MM-DD')}}"
+    },
+    "format": {
+      "value": "YYYY-MM-DD"
+    },
+    "minDate": {
+      "value": ""
+    },
+    "maxDate": {
+      "value": ""
+    },
+    "disabledDates": {
+      "value": "{{[]}}"
+    },
+    "showClearBtn": {
+      "value": "{{false}}"
+    },
+    "startDate": {
+      "value": ""
+    },
+    "endDate": {
+      "value": ""
+    },
+    "unixTimestamp": {
+      "value": "{{null}}"
+    },
+    "displayValue": {
+      "value": ""
+    },
+    "startDateInUnix": {
+      "value": "{{null}}"
+    },
+    "endDateInUnix": {
+      "value": "{{null}}"
+    },
+    "selectedDateRange": {
+      "value": ""
+    },
+    "dateFormat": {
+      "value": "DD MMM YYYY"
+    },
+    "disabled": {
+      "value": "{{false}}"
+    },
+    "visibility": {
+      "value": "{{true}}"
+    },
+    "loadingState": {
+      "value": "{{false}}"
+    },
+    "disabledState": {
+      "value": "{{false}}"
+    },
+    "dynamicHeight": {
+      "value": "{{true}}"
+    },
+    "pack": {
+      "value": "shadcn"
+    },
+    "componentName": {
+      "value": "DatePicker"
+    }
+  },
+  "general": {},
+  "styles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "generalStyles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "displayPreferences": {
+    "showOnDesktop": {
+      "value": "{{true}}"
+    },
+    "showOnMobile": {
+      "value": "{{false}}"
+    }
+  },
+  "validation": {},
+  "layouts": [
+    {
+      "id": "6ca1f776-f118-49db-bd15-dbd072518613",
+      "type": "desktop",
+      "top": 80,
+      "left": 27,
+      "width": 14,
+      "height": 40,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "98e29384-fd29-4b44-9f8a-2a12b78aa533",
+      "dimensionUnit": "count"
+    },
+    {
+      "id": "4f7169db-b7b2-48d5-98eb-daa593729542",
+      "type": "mobile",
+      "top": 80,
+      "left": 27,
+      "width": 14,
+      "height": 40,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "98e29384-fd29-4b44-9f8a-2a12b78aa533",
+      "dimensionUnit": "count"
+    }
+  ]
+}

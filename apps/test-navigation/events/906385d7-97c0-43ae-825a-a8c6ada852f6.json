@@ -1,0 +1,14 @@
+{
+  "id": "906385d7-97c0-43ae-825a-a8c6ada852f6",
+  "name": "createRequest success action 1",
+  "index": 1,
+  "event": {
+    "key": "step",
+    "value": "details",
+    "eventId": "onDataQuerySuccess",
+    "actionId": "set-custom-variable"
+  },
+  "sourceId": "71a8f97e-c70f-48d7-a686-4c017af008ee",
+  "target": "data_query",
+  "appVersionId": "8adf2af2-2fa1-43e8-a67c-19b7e68325a2"
+}

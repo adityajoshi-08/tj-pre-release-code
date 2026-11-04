@@ -1,0 +1,14 @@
+{
+  "id": "67678a2d-4a16-42d1-948f-5f3ddef164c4",
+  "name": "onClick → set-custom-variable",
+  "index": 0,
+  "event": {
+    "key": "step",
+    "value": "review",
+    "eventId": "onClick",
+    "actionId": "set-custom-variable"
+  },
+  "sourceId": "af243a3f-9b39-4045-a4c9-e6a76b528489",
+  "target": "component",
+  "appVersionId": "8adf2af2-2fa1-43e8-a67c-19b7e68325a2"
+}

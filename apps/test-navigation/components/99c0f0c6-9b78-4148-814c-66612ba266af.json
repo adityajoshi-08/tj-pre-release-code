@@ -1,0 +1,128 @@
+{
+  "id": "99c0f0c6-9b78-4148-814c-66612ba266af",
+  "name": "amount",
+  "type": "PackComponent",
+  "pageId": "4e58c2fe-f32d-4127-a8ee-c61d73533e23",
+  "parent": "80aa7540-8c2a-474b-8268-ca7bc7d12ce5-body",
+  "properties": {
+    "label": {
+      "value": "Amount (USD)"
+    },
+    "description": {
+      "value": ""
+    },
+    "placeholder": {
+      "value": "0.00"
+    },
+    "defaultValue": {
+      "value": "{{1}}"
+    },
+    "decimalPlaces": {
+      "value": 2
+    },
+    "step": {
+      "value": "{{1}}"
+    },
+    "stepper": {
+      "value": "split"
+    },
+    "prefix": {
+      "value": "$"
+    },
+    "suffix": {
+      "value": ""
+    },
+    "thousandSeparator": {
+      "value": "{{true}}"
+    },
+    "showClearBtn": {
+      "value": "{{false}}"
+    },
+    "minValue": {
+      "value": 0
+    },
+    "maxValue": {
+      "value": ""
+    },
+    "min": {
+      "value": ""
+    },
+    "max": {
+      "value": ""
+    },
+    "required": {
+      "value": "{{false}}"
+    },
+    "disabled": {
+      "value": "{{false}}"
+    },
+    "visibility": {
+      "value": "{{true}}"
+    },
+    "loadingState": {
+      "value": "{{false}}"
+    },
+    "disabledState": {
+      "value": "{{false}}"
+    },
+    "dynamicHeight": {
+      "value": "{{true}}"
+    },
+    "pack": {
+      "value": "shadcn"
+    },
+    "componentName": {
+      "value": "NumberInput"
+    }
+  },
+  "general": {},
+  "styles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "generalStyles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "displayPreferences": {
+    "showOnDesktop": {
+      "value": "{{true}}"
+    },
+    "showOnMobile": {
+      "value": "{{false}}"
+    }
+  },
+  "validation": {},
+  "layouts": [
+    {
+      "id": "21e0dcef-b1cc-48bc-a303-97f3fdf0d7ad",
+      "type": "desktop",
+      "top": 8,
+      "left": 2,
+      "width": 13,
+      "height": 40,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "99c0f0c6-9b78-4148-814c-66612ba266af",
+      "dimensionUnit": "count"
+    },
+    {
+      "id": "8f815389-a2a6-4c05-97fd-4f9815968be8",
+      "type": "mobile",
+      "top": 8,
+      "left": 2,
+      "width": 13,
+      "height": 40,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "99c0f0c6-9b78-4148-814c-66612ba266af",
+      "dimensionUnit": "count"
+    }
+  ]
+}

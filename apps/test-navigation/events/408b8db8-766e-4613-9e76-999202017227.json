@@ -1,0 +1,14 @@
+{
+  "id": "408b8db8-766e-4613-9e76-999202017227",
+  "name": "onStepChange → set-custom-variable",
+  "index": 0,
+  "event": {
+    "key": "step",
+    "value": "{{components.stepper1.currentStep}}",
+    "eventId": "onStepChange",
+    "actionId": "set-custom-variable"
+  },
+  "sourceId": "4f13a493-2ab4-478e-af87-2f37cdca3c97",
+  "target": "component",
+  "appVersionId": "8adf2af2-2fa1-43e8-a67c-19b7e68325a2"
+}

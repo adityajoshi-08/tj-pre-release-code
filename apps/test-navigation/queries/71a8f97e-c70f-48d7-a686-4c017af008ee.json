@@ -1,0 +1,70 @@
+{
+  "id": "71a8f97e-c70f-48d7-a686-4c017af008ee",
+  "name": "createRequest",
+  "options": {
+    "create_row": {
+      "0": {
+        "column": "request_code",
+        "value": "{{'SPR-' + moment().format('YYMMDD') + '-' + Math.floor(1000 + Math.random() * 9000)}}"
+      },
+      "1": {
+        "column": "requester_email",
+        "value": "{{globals.server.currentUser.email}}"
+      },
+      "2": {
+        "column": "requester_name",
+        "value": "{{(queries.getEmployees.data.find((e) => e.email === globals.server.currentUser.email) || {}).full_name || globals.server.currentUser.email.split('@')[0]}}"
+      },
+      "3": {
+        "column": "department",
+        "value": "{{(components.togglegroup1.values || [])[0] || components.togglegroup1.value || 'Engineering'}}"
+      },
+      "4": {
+        "column": "cost_centre",
+        "value": "{{components.costCentre.value}}"
+      },
+      "5": {
+        "column": "item_name",
+        "value": "{{components.itemName.value}}"
+      },
+      "6": {
+        "column": "vendor",
+        "value": "{{components.vendor.value}}"
+      },
+      "7": {
+        "column": "amount",
+        "value": "{{Number(components.amount.value || 0)}}"
+      },
+      "8": {
+        "column": "justification",
+        "value": "{{components.justification.value}}"
+      },
+      "9": {
+        "column": "needed_by",
+        "value": "{{components.neededBy.value}}"
+      },
+      "10": {
+        "column": "status",
+        "value": "pending_manager"
+      },
+      "11": {
+        "column": "manager_email",
+        "value": "{{components.manager.value}}"
+      },
+      "12": {
+        "column": "created_at",
+        "value": "{{moment().toISOString()}}"
+      }
+    },
+    "operation": "create_row",
+    "runOnPageLoad": false,
+    "runOnDependencyChange": false,
+    "requestConfirmation": false,
+    "showSuccessNotification": false,
+    "table_id": "2966338b-c00d-4190-b654-e6f9a9e11c30"
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "8adf2af2-2fa1-43e8-a67c-19b7e68325a2",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

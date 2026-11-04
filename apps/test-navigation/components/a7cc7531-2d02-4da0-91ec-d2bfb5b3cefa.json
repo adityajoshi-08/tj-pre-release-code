@@ -1,0 +1,92 @@
+{
+  "id": "a7cc7531-2d02-4da0-91ec-d2bfb5b3cefa",
+  "name": "justification",
+  "type": "PackComponent",
+  "pageId": "4e58c2fe-f32d-4127-a8ee-c61d73533e23",
+  "parent": "80aa7540-8c2a-474b-8268-ca7bc7d12ce5-body",
+  "properties": {
+    "label": {
+      "value": "Business justification"
+    },
+    "description": {
+      "value": ""
+    },
+    "placeholder": {
+      "value": "Why is this needed now?"
+    },
+    "defaultValue": {
+      "value": ""
+    },
+    "disabled": {
+      "value": "{{false}}"
+    },
+    "visibility": {
+      "value": "{{true}}"
+    },
+    "loadingState": {
+      "value": "{{false}}"
+    },
+    "disabledState": {
+      "value": "{{false}}"
+    },
+    "dynamicHeight": {
+      "value": "{{true}}"
+    },
+    "pack": {
+      "value": "shadcn"
+    },
+    "componentName": {
+      "value": "Textarea"
+    }
+  },
+  "general": {},
+  "styles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "generalStyles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "displayPreferences": {
+    "showOnDesktop": {
+      "value": "{{true}}"
+    },
+    "showOnMobile": {
+      "value": "{{false}}"
+    }
+  },
+  "validation": {},
+  "layouts": [
+    {
+      "id": "3e21225a-4b11-4f67-8923-3eeccbe3aef1",
+      "type": "desktop",
+      "top": 80,
+      "left": 2,
+      "width": 39,
+      "height": 100,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "a7cc7531-2d02-4da0-91ec-d2bfb5b3cefa",
+      "dimensionUnit": "count"
+    },
+    {
+      "id": "6c162b22-47f5-4814-8713-d8210687d447",
+      "type": "mobile",
+      "top": 80,
+      "left": 2,
+      "width": 39,
+      "height": 100,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "a7cc7531-2d02-4da0-91ec-d2bfb5b3cefa",
+      "dimensionUnit": "count"
+    }
+  ]
+}

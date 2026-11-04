@@ -1,0 +1,14 @@
+{
+  "id": "80276198-b2ac-4816-9c3c-465e4e57d549",
+  "name": "onClick → set-custom-variable",
+  "index": 0,
+  "event": {
+    "key": "step",
+    "value": "cost",
+    "eventId": "onClick",
+    "actionId": "set-custom-variable"
+  },
+  "sourceId": "3bc98e5a-50bb-41ad-9c3a-49e15341deb2",
+  "target": "component",
+  "appVersionId": "8adf2af2-2fa1-43e8-a67c-19b7e68325a2"
+}
