@@ -1,0 +1,98 @@
+{
+  "id": "3bc98e5a-50bb-41ad-9c3a-49e15341deb2",
+  "name": "btnBack3",
+  "type": "PackComponent",
+  "pageId": "4e58c2fe-f32d-4127-a8ee-c61d73533e23",
+  "parent": "fc238114-8315-41de-8eeb-9343b0c37743",
+  "properties": {
+    "text": {
+      "value": "Back"
+    },
+    "variant": {
+      "value": "outline"
+    },
+    "size": {
+      "value": "default"
+    },
+    "fullWidth": {
+      "value": "{{false}}"
+    },
+    "disabled": {
+      "value": "{{false}}"
+    },
+    "loading": {
+      "value": "{{false}}"
+    },
+    "buttonText": {
+      "value": "Button"
+    },
+    "visibility": {
+      "value": "{{true}}"
+    },
+    "loadingState": {
+      "value": "{{false}}"
+    },
+    "disabledState": {
+      "value": "{{false}}"
+    },
+    "dynamicHeight": {
+      "value": "{{false}}"
+    },
+    "pack": {
+      "value": "shadcn"
+    },
+    "componentName": {
+      "value": "Button"
+    }
+  },
+  "general": {},
+  "styles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "generalStyles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "displayPreferences": {
+    "showOnDesktop": {
+      "value": "{{true}}"
+    },
+    "showOnMobile": {
+      "value": "{{false}}"
+    }
+  },
+  "validation": {},
+  "layouts": [
+    {
+      "id": "2ec4cd37-cbe5-4fda-b6de-dc94300f34a1",
+      "type": "desktop",
+      "top": 0,
+      "left": 0,
+      "width": 6,
+      "height": 40,
+      "widthPx": 110,
+      "fillWidth": false,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "3bc98e5a-50bb-41ad-9c3a-49e15341deb2",
+      "dimensionUnit": "count"
+    },
+    {
+      "id": "65503079-7388-4017-9690-7f3533454453",
+      "type": "mobile",
+      "top": 0,
+      "left": 0,
+      "width": 6,
+      "height": 40,
+      "widthPx": 110,
+      "fillWidth": false,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "3bc98e5a-50bb-41ad-9c3a-49e15341deb2",
+      "dimensionUnit": "count"
+    }
+  ]
+}

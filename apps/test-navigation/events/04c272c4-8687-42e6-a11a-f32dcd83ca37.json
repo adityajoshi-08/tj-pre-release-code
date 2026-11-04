@@ -1,0 +1,14 @@
+{
+  "id": "04c272c4-8687-42e6-a11a-f32dcd83ca37",
+  "name": "Refresh getRequests after createRequest",
+  "index": 0,
+  "event": {
+    "eventId": "onDataQuerySuccess",
+    "queryId": "aacd42a1-cc53-4df7-8bfa-22fedba5571d",
+    "actionId": "run-query",
+    "queryName": "getRequests"
+  },
+  "sourceId": "71a8f97e-c70f-48d7-a686-4c017af008ee",
+  "target": "data_query",
+  "appVersionId": "8adf2af2-2fa1-43e8-a67c-19b7e68325a2"
+}

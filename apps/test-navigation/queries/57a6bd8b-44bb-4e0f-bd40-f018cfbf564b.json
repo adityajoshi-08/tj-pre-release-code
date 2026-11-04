@@ -1,0 +1,24 @@
+{
+  "id": "57a6bd8b-44bb-4e0f-bd40-f018cfbf564b",
+  "name": "getEmployees",
+  "options": {
+    "operation": "list_rows",
+    "table_id": "170d78fa-2e9c-4ab9-9913-fe4e5039a619",
+    "list_rows": {
+      "limit": 40,
+      "offset": 0,
+      "order_filters": {
+        "sort-name": {
+          "id": "sort-name",
+          "column": "full_name",
+          "order": "asc"
+        }
+      }
+    },
+    "runOnPageLoad": true
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "8adf2af2-2fa1-43e8-a67c-19b7e68325a2",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

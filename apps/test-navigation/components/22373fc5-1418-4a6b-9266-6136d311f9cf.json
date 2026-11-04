@@ -1,0 +1,150 @@
+{
+  "id": "22373fc5-1418-4a6b-9266-6136d311f9cf",
+  "name": "amountStat",
+  "type": "PackComponent",
+  "pageId": "4e58c2fe-f32d-4127-a8ee-c61d73533e23",
+  "parent": "db2ea817-b128-45e2-8aed-4b8173087945-body",
+  "properties": {
+    "label": {
+      "value": "Amount requested"
+    },
+    "value": {
+      "fxActive": true,
+      "value": "{{components.amount.value}}"
+    },
+    "valueFormat": {
+      "value": "currency"
+    },
+    "currency": {
+      "value": "USD"
+    },
+    "locale": {
+      "value": ""
+    },
+    "change": {
+      "value": ""
+    },
+    "changeFormat": {
+      "value": "number"
+    },
+    "trend": {
+      "value": "up"
+    },
+    "changeLabel": {
+      "value": ""
+    },
+    "footnote": {
+      "value": ""
+    },
+    "icon": {
+      "value": ""
+    },
+    "iconPosition": {
+      "value": "right"
+    },
+    "iconStyle": {
+      "value": "square"
+    },
+    "trendData": {
+      "value": ""
+    },
+    "sparklineType": {
+      "value": "area"
+    },
+    "progress": {
+      "value": ""
+    },
+    "progressLabel": {
+      "value": ""
+    },
+    "size": {
+      "value": "default"
+    },
+    "card": {
+      "value": false
+    },
+    "primaryLabel": {
+      "value": "Total revenue"
+    },
+    "primaryValue": {
+      "value": "1250"
+    },
+    "secondaryLabel": {
+      "value": ""
+    },
+    "secondaryValue": {
+      "value": ""
+    },
+    "loadingIndicator": {
+      "value": "spinner"
+    },
+    "visibility": {
+      "value": "{{true}}"
+    },
+    "loadingState": {
+      "value": "{{false}}"
+    },
+    "disabledState": {
+      "value": "{{false}}"
+    },
+    "dynamicHeight": {
+      "value": "{{true}}"
+    },
+    "pack": {
+      "value": "shadcn"
+    },
+    "componentName": {
+      "value": "Stat"
+    }
+  },
+  "general": {},
+  "styles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "generalStyles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "displayPreferences": {
+    "showOnDesktop": {
+      "value": "{{true}}"
+    },
+    "showOnMobile": {
+      "value": "{{false}}"
+    }
+  },
+  "validation": {},
+  "layouts": [
+    {
+      "id": "956e4f38-8d12-43ae-b57f-2e2a7482617a",
+      "type": "desktop",
+      "top": 44,
+      "left": 27,
+      "width": 14,
+      "height": 110,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "22373fc5-1418-4a6b-9266-6136d311f9cf",
+      "dimensionUnit": "count"
+    },
+    {
+      "id": "777cea5f-9945-42f8-a5bb-e2d47e922e14",
+      "type": "mobile",
+      "top": 44,
+      "left": 27,
+      "width": 14,
+      "height": 110,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "22373fc5-1418-4a6b-9266-6136d311f9cf",
+      "dimensionUnit": "count"
+    }
+  ]
+}

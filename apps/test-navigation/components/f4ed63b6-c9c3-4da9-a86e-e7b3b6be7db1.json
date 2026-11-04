@@ -1,0 +1,132 @@
+{
+  "id": "f4ed63b6-c9c3-4da9-a86e-e7b3b6be7db1",
+  "name": "recentTable",
+  "type": "Table",
+  "pageId": "4e58c2fe-f32d-4127-a8ee-c61d73533e23",
+  "parent": "02a20486-1140-4c16-b352-813ca959fea7",
+  "properties": {
+    "columns": {
+      "value": [
+        {
+          "key": "request_code",
+          "name": "Request"
+        },
+        {
+          "key": "item_name",
+          "name": "Item"
+        },
+        {
+          "key": "requester_name",
+          "name": "Requested by",
+          "displayAvatar": true
+        },
+        {
+          "format": "currency:USD",
+          "key": "amount",
+          "name": "Amount"
+        },
+        {
+          "key": "status",
+          "name": "Status",
+          "type": "tags",
+          "displayAsChip": true
+        },
+        {
+          "format": "DD MMM YYYY",
+          "key": "needed_by",
+          "name": "Needed by",
+          "type": "date"
+        }
+      ]
+    },
+    "data": {
+      "fxActive": true,
+      "value": "{{queries.getRequests.data.map((r) => ({ request_code: r.request_code, item_name: r.item_name, requester_name: r.requester_name, amount: r.amount, status: r.status === 'pending_manager' ? 'Pending manager' : (r.status === 'approved' ? 'Approved' : (r.status === 'rejected' ? 'Rejected' : (r.status === 'pending_finance' ? 'Pending finance' : r.status))), needed_by: r.needed_by }))}}"
+    },
+    "displaySearchBox": {
+      "value": false
+    },
+    "rowsPerPage": {
+      "value": 5,
+      "fxActive": false
+    },
+    "useDynamicColumn": {
+      "value": "{{false}}"
+    },
+    "columnData": {
+      "value": "{{[{name: 'email', key: 'email', id: '1'}, {name: 'Full name', key: 'name', id: '2', isEditable: true}]}}"
+    },
+    "autogenerateColumns": {
+      "value": true
+    },
+    "showDownloadButton": {
+      "fxActive": false,
+      "value": false
+    },
+    "showFilterButton": {
+      "fxActive": false,
+      "value": false
+    },
+    "defaultSelectedRow": {
+      "value": "{{{\"id\":1} }}"
+    }
+  },
+  "general": {},
+  "styles": {
+    "contentWrap": {
+      "value": false
+    },
+    "headerCasing": {
+      "fxActive": false,
+      "value": "none"
+    },
+    "tableLook": {
+      "fxActive": false,
+      "value": "shadcn"
+    }
+  },
+  "generalStyles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "displayPreferences": {
+    "showOnDesktop": {
+      "value": "{{true}}"
+    },
+    "showOnMobile": {
+      "value": "{{false}}"
+    }
+  },
+  "validation": {},
+  "layouts": [
+    {
+      "id": "6de7d027-beb2-45e3-9be4-8f20aa3d70a9",
+      "type": "desktop",
+      "top": 0,
+      "left": 0,
+      "width": 39,
+      "height": 390,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "f4ed63b6-c9c3-4da9-a86e-e7b3b6be7db1",
+      "dimensionUnit": "count"
+    },
+    {
+      "id": "2275a81c-c00c-4efa-b8c2-a91f1953f473",
+      "type": "mobile",
+      "top": 0,
+      "left": 0,
+      "width": 39,
+      "height": 280,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "f4ed63b6-c9c3-4da9-a86e-e7b3b6be7db1",
+      "dimensionUnit": "count"
+    }
+  ]
+}

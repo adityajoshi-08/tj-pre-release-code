@@ -1,0 +1,14 @@
+{
+  "id": "c2f5bb03-e9f4-47db-a5c3-c5aef7918a00",
+  "name": "Confirm createRequest",
+  "index": 2,
+  "event": {
+    "eventId": "onDataQuerySuccess",
+    "message": "Request submitted for approval",
+    "actionId": "show-alert",
+    "alertType": "success"
+  },
+  "sourceId": "71a8f97e-c70f-48d7-a686-4c017af008ee",
+  "target": "data_query",
+  "appVersionId": "8adf2af2-2fa1-43e8-a67c-19b7e68325a2"
+}
