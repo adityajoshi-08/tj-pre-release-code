@@ -1,0 +1,23 @@
+{
+  "id": "14eea0a7-8b08-4f1f-a8c5-bce724092176",
+  "name": "staffDirectory",
+  "options": {
+    "operation": "list_rows",
+    "table_id": "170d78fa-2e9c-4ab9-9913-fe4e5039a619",
+    "list_rows": {
+      "limit": 300,
+      "order_filters": {
+        "sort-name": {
+          "id": "sort-name",
+          "column": "full_name",
+          "order": "asc"
+        }
+      }
+    },
+    "runOnPageLoad": true
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "63908eb8-86f3-496b-8d1b-479ebf110196",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

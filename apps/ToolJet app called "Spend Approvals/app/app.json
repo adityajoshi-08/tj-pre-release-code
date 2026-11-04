@@ -1,0 +1,16 @@
+{
+  "id": "ae67b5ad-7b0a-49cc-9060-761ef66c860a",
+  "type": "front-end",
+  "slug": "75f9f691-cd32-4093-8b7d-33f43e3cc2be",
+  "isPublic": false,
+  "isMaintenanceOn": false,
+  "__loaded": true,
+  "aiGenerationMetadata": {
+    "threadId": "613882ea-a31e-4857-a5cd-b7d1a1480fc6",
+    "interrupt": null,
+    "interruptId": null
+  },
+  "appBuilderMode": "visual",
+  "icon": "home",
+  "tooljetVersion": "3.21.89-beta-ee"
+}

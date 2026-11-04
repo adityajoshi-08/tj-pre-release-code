@@ -1,0 +1,76 @@
+{
+  "id": "2c6d3bf0-21cc-4546-b198-ef81cbf09f1c",
+  "name": "app",
+  "type": "LibraryComponent",
+  "pageId": "9f8bffa9-d0b0-4416-864c-967cb4a89712",
+  "parent": null,
+  "properties": {
+    "libraryId": {
+      "value": "de9abfe9-abef-44c3-8091-0a0140af5594"
+    },
+    "correlationId": {
+      "value": "77e2945b-0584-4348-99d3-62650cb185dd"
+    },
+    "libraryName": {
+      "value": "Spend Approvals"
+    },
+    "componentName": {
+      "value": "App"
+    },
+    "codePage": {
+      "value": "{{true}}"
+    },
+    "routes": {
+      "value": "[{\"id\":\"requests\",\"path\":\"/\",\"title\":\"Requests\",\"pageId\":\"e4be3366-f814-4c17-83f3-2cf543494aa8\"},{\"id\":\"queue\",\"path\":\"/queue\",\"title\":\"Approval queue\",\"pageId\":\"426f07c8-7139-4599-933d-65f03b40d535\"},{\"id\":\"spend\",\"path\":\"/spend\",\"title\":\"Spend dashboard\",\"pageId\":\"07968ed3-41e0-472e-861f-1307cd002361\"},{\"id\":\"request\",\"path\":\"/requests/:id\",\"title\":\"Request\",\"pageId\":\"d09a564d-16f3-4c66-9041-b0d755c8b5e7\"}]"
+    },
+    "visibility": {
+      "value": "{{true}}"
+    }
+  },
+  "general": {},
+  "styles": {},
+  "generalStyles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "displayPreferences": {
+    "showOnDesktop": {
+      "value": "{{true}}"
+    },
+    "showOnMobile": {
+      "value": "{{true}}"
+    }
+  },
+  "validation": {},
+  "layouts": [
+    {
+      "id": "0cb37a60-c643-47b3-b07c-e0040821dfc7",
+      "type": "desktop",
+      "top": 0,
+      "left": 0,
+      "width": 43,
+      "height": 100,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "2c6d3bf0-21cc-4546-b198-ef81cbf09f1c",
+      "dimensionUnit": "count"
+    },
+    {
+      "id": "2e7292f5-ad54-44fa-8ea6-e2ef60597d13",
+      "type": "mobile",
+      "top": 0,
+      "left": 0,
+      "width": 43,
+      "height": 100,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "2c6d3bf0-21cc-4546-b198-ef81cbf09f1c",
+      "dimensionUnit": "count"
+    }
+  ]
+}

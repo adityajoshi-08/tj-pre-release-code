@@ -1,0 +1,4 @@
+node_modules/
+/.tooljet/
+frontend/dist/
+frontend/src/tooljet.gen.ts

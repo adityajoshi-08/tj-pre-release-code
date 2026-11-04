@@ -1,0 +1,159 @@
+{
+  "id": "880042d8-8b39-4fa6-b2a3-651f057d6e64",
+  "table_name": "approval_actions",
+  "schema": {
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "integer",
+        "column_default": "nextval(\"workspace_ec9ea579-76ca-4e08-95f8-2c9d6ea7d5ac\".\"fa9d2f8d-33a3-4528-b12a-e60c742cd8c3_id_seq\"",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "constraints_type": {
+          "is_not_null": true,
+          "is_primary_key": true,
+          "is_unique": false
+        },
+        "keytype": "PRIMARY KEY",
+        "column_id": "79b60588-e3b5-4d13-b073-22f4edebb08e",
+        "configurations": {}
+      },
+      {
+        "column_name": "request_code",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": true,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "6a81aacb-e4bd-4f42-9c39-b170a522c2cb",
+        "configurations": {}
+      },
+      {
+        "column_name": "stage",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "870100ab-1ba6-4ee0-94e7-d419eb902231",
+        "configurations": {}
+      },
+      {
+        "column_name": "approver_email",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "cc514a88-151c-48af-bda9-f7c55742bed6",
+        "configurations": {}
+      },
+      {
+        "column_name": "approver_name",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "6c6f70db-f92a-4797-8178-8c0d0387204c",
+        "configurations": {}
+      },
+      {
+        "column_name": "assigned_email",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "ef50aa03-4bce-41d3-95c8-22c01364c04e",
+        "configurations": {}
+      },
+      {
+        "column_name": "is_override",
+        "data_type": "boolean",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "c94dbca1-c156-45d6-847a-2807345d7da3",
+        "configurations": {}
+      },
+      {
+        "column_name": "decision",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "80824c6c-9806-45ec-b239-e4f318faa8a1",
+        "configurations": {}
+      },
+      {
+        "column_name": "note",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "69e62015-16e5-4509-81c7-cf81efe7920c",
+        "configurations": {}
+      },
+      {
+        "column_name": "acted_at",
+        "data_type": "timestamp with time zone",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "602cad97-bf02-4d56-87fd-7925abd1dbc4",
+        "configurations": {}
+      }
+    ],
+    "foreign_keys": []
+  }
+}

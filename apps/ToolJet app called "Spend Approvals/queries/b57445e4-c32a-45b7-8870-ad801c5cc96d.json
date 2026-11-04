@@ -1,0 +1,23 @@
+{
+  "id": "b57445e4-c32a-45b7-8870-ad801c5cc96d",
+  "name": "approvalActions",
+  "options": {
+    "operation": "list_rows",
+    "table_id": "880042d8-8b39-4fa6-b2a3-651f057d6e64",
+    "list_rows": {
+      "limit": 400,
+      "order_filters": {
+        "sort-acted": {
+          "id": "sort-acted",
+          "column": "acted_at",
+          "order": "desc"
+        }
+      }
+    },
+    "runOnPageLoad": true
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "63908eb8-86f3-496b-8d1b-479ebf110196",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

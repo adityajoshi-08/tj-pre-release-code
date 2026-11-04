@@ -1,0 +1,249 @@
+{
+  "id": "2966338b-c00d-4190-b654-e6f9a9e11c30",
+  "table_name": "spend_requests",
+  "schema": {
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "integer",
+        "column_default": "nextval(\"workspace_ec9ea579-76ca-4e08-95f8-2c9d6ea7d5ac\".\"63294945-70fd-4e93-a2f6-e2f39ec7928d_id_seq\"",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "constraints_type": {
+          "is_not_null": true,
+          "is_primary_key": true,
+          "is_unique": false
+        },
+        "keytype": "PRIMARY KEY",
+        "column_id": "7e70f299-98c2-436f-a063-af80954e01e0",
+        "configurations": {}
+      },
+      {
+        "column_name": "request_code",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": true,
+          "is_primary_key": false,
+          "is_unique": true
+        },
+        "keytype": "",
+        "column_id": "8217ba2d-206d-4a0f-9aa8-93ccc08f381b",
+        "configurations": {}
+      },
+      {
+        "column_name": "requester_email",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": true,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "cdd714e6-f376-46f2-9d9c-d56fe6d53e80",
+        "configurations": {}
+      },
+      {
+        "column_name": "requester_name",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "70428698-38df-414d-b5dd-5d4a1e54fb27",
+        "configurations": {}
+      },
+      {
+        "column_name": "department",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "3f909efe-6ab8-4ca3-8ab8-ba7c8d977066",
+        "configurations": {}
+      },
+      {
+        "column_name": "cost_centre",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "45bd2300-dd8b-4b1e-966d-7cfe109f43f6",
+        "configurations": {}
+      },
+      {
+        "column_name": "item_name",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "bdf06856-59a1-44a2-89cf-747ff4cf65ba",
+        "configurations": {}
+      },
+      {
+        "column_name": "vendor",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "e5ccfe11-c738-4b1b-a7f7-8d0a3e144b8d",
+        "configurations": {}
+      },
+      {
+        "column_name": "amount",
+        "data_type": "double precision",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": 53,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "cb9bb066-664d-4404-85e3-9c82836a2b1b",
+        "configurations": {}
+      },
+      {
+        "column_name": "justification",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "d24656b7-4671-4074-8a99-1d96115cd82b",
+        "configurations": {}
+      },
+      {
+        "column_name": "needed_by",
+        "data_type": "timestamp with time zone",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "f69e8952-70e4-4b17-a8d2-6db564347096",
+        "configurations": {}
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "afc48300-9cf2-4703-9638-a557d7b469a1",
+        "configurations": {}
+      },
+      {
+        "column_name": "manager_email",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "5adaae7c-d4d7-4401-a17b-a9c57b284ed1",
+        "configurations": {}
+      },
+      {
+        "column_name": "finance_approver_email",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "22482249-c82f-41b0-ad8c-1500cf1f7892",
+        "configurations": {}
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "84d6abbf-0aa5-4dd5-a1ea-ea3fc8842b9a",
+        "configurations": {}
+      },
+      {
+        "column_name": "decided_at",
+        "data_type": "timestamp with time zone",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "acd15cf8-10ef-4dee-a6c0-c0890faf8b79",
+        "configurations": {}
+      }
+    ],
+    "foreign_keys": []
+  }
+}

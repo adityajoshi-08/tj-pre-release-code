@@ -1,0 +1,46 @@
+{
+  "id": "9f9550a2-f687-4584-a014-f64b5ba06619",
+  "name": "routeToFinance",
+  "options": {
+    "operation": "update_rows",
+    "table_id": "2966338b-c00d-4190-b654-e6f9a9e11c30",
+    "update_rows": {
+      "columns": {
+        "0": {
+          "column": "status",
+          "value": "{{parameters.status}}"
+        },
+        "1": {
+          "column": "finance_approver_email",
+          "value": "{{parameters.finance_approver_email}}"
+        }
+      },
+      "where_filters": {
+        "by-id": {
+          "column": "id",
+          "operator": "eq",
+          "value": "{{parameters.id}}"
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "id",
+        "defaultValue": 0
+      },
+      {
+        "name": "status",
+        "defaultValue": ""
+      },
+      {
+        "name": "finance_approver_email",
+        "defaultValue": ""
+      }
+    ],
+    "runOnPageLoad": false
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "63908eb8-86f3-496b-8d1b-479ebf110196",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}
