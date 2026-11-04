@@ -1,0 +1,89 @@
+{
+  "id": "e8731a59-7a8f-4710-b3a7-0486dc697205",
+  "name": "logApproval",
+  "options": {
+    "operation": "create_row",
+    "table_id": "880042d8-8b39-4fa6-b2a3-651f057d6e64",
+    "create_row": {
+      "0": {
+        "column": "request_code",
+        "value": "{{parameters.request_code}}"
+      },
+      "1": {
+        "column": "stage",
+        "value": "{{parameters.stage}}"
+      },
+      "2": {
+        "column": "approver_email",
+        "value": "{{parameters.approver_email}}"
+      },
+      "3": {
+        "column": "approver_name",
+        "value": "{{parameters.approver_name}}"
+      },
+      "4": {
+        "column": "assigned_email",
+        "value": "{{parameters.assigned_email}}"
+      },
+      "5": {
+        "column": "is_override",
+        "value": "{{parameters.is_override}}"
+      },
+      "6": {
+        "column": "decision",
+        "value": "{{parameters.decision}}"
+      },
+      "7": {
+        "column": "note",
+        "value": "{{parameters.note}}"
+      },
+      "8": {
+        "column": "acted_at",
+        "value": "{{parameters.acted_at}}"
+      }
+    },
+    "parameters": [
+      {
+        "name": "request_code",
+        "defaultValue": ""
+      },
+      {
+        "name": "stage",
+        "defaultValue": ""
+      },
+      {
+        "name": "approver_email",
+        "defaultValue": ""
+      },
+      {
+        "name": "approver_name",
+        "defaultValue": ""
+      },
+      {
+        "name": "assigned_email",
+        "defaultValue": ""
+      },
+      {
+        "name": "is_override",
+        "defaultValue": false
+      },
+      {
+        "name": "decision",
+        "defaultValue": ""
+      },
+      {
+        "name": "note",
+        "defaultValue": ""
+      },
+      {
+        "name": "acted_at",
+        "defaultValue": ""
+      }
+    ],
+    "runOnPageLoad": false
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "63908eb8-86f3-496b-8d1b-479ebf110196",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

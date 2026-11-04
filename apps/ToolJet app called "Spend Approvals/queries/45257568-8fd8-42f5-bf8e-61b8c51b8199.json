@@ -1,0 +1,23 @@
+{
+  "id": "45257568-8fd8-42f5-bf8e-61b8c51b8199",
+  "name": "spendRequests",
+  "options": {
+    "operation": "list_rows",
+    "table_id": "2966338b-c00d-4190-b654-e6f9a9e11c30",
+    "list_rows": {
+      "limit": 300,
+      "order_filters": {
+        "sort-created": {
+          "id": "sort-created",
+          "column": "created_at",
+          "order": "desc"
+        }
+      }
+    },
+    "runOnPageLoad": true
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "63908eb8-86f3-496b-8d1b-479ebf110196",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

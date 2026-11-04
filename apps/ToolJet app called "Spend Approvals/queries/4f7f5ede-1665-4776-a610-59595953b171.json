@@ -1,0 +1,129 @@
+{
+  "id": "4f7f5ede-1665-4776-a610-59595953b171",
+  "name": "createRequest",
+  "options": {
+    "operation": "create_row",
+    "table_id": "2966338b-c00d-4190-b654-e6f9a9e11c30",
+    "create_row": {
+      "0": {
+        "column": "request_code",
+        "value": "{{parameters.request_code}}"
+      },
+      "1": {
+        "column": "requester_email",
+        "value": "{{parameters.requester_email}}"
+      },
+      "2": {
+        "column": "requester_name",
+        "value": "{{parameters.requester_name}}"
+      },
+      "3": {
+        "column": "department",
+        "value": "{{parameters.department}}"
+      },
+      "4": {
+        "column": "cost_centre",
+        "value": "{{parameters.cost_centre}}"
+      },
+      "5": {
+        "column": "item_name",
+        "value": "{{parameters.item_name}}"
+      },
+      "6": {
+        "column": "vendor",
+        "value": "{{parameters.vendor}}"
+      },
+      "7": {
+        "column": "amount",
+        "value": "{{parameters.amount}}"
+      },
+      "8": {
+        "column": "justification",
+        "value": "{{parameters.justification}}"
+      },
+      "9": {
+        "column": "needed_by",
+        "value": "{{parameters.needed_by}}"
+      },
+      "10": {
+        "column": "status",
+        "value": "{{parameters.status}}"
+      },
+      "11": {
+        "column": "manager_email",
+        "value": "{{parameters.manager_email}}"
+      },
+      "12": {
+        "column": "finance_approver_email",
+        "value": "{{parameters.finance_approver_email}}"
+      },
+      "13": {
+        "column": "created_at",
+        "value": "{{parameters.created_at}}"
+      }
+    },
+    "parameters": [
+      {
+        "name": "request_code",
+        "defaultValue": ""
+      },
+      {
+        "name": "requester_email",
+        "defaultValue": ""
+      },
+      {
+        "name": "requester_name",
+        "defaultValue": ""
+      },
+      {
+        "name": "department",
+        "defaultValue": ""
+      },
+      {
+        "name": "cost_centre",
+        "defaultValue": ""
+      },
+      {
+        "name": "item_name",
+        "defaultValue": ""
+      },
+      {
+        "name": "vendor",
+        "defaultValue": ""
+      },
+      {
+        "name": "amount",
+        "defaultValue": 0
+      },
+      {
+        "name": "justification",
+        "defaultValue": ""
+      },
+      {
+        "name": "needed_by",
+        "defaultValue": ""
+      },
+      {
+        "name": "status",
+        "defaultValue": ""
+      },
+      {
+        "name": "manager_email",
+        "defaultValue": ""
+      },
+      {
+        "name": "finance_approver_email",
+        "defaultValue": ""
+      },
+      {
+        "name": "created_at",
+        "defaultValue": ""
+      }
+    ],
+    "runOnPageLoad": false
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "63908eb8-86f3-496b-8d1b-479ebf110196",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

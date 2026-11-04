@@ -1,0 +1,46 @@
+{
+  "id": "75d5135d-2a51-450d-85d2-01a1cc72217d",
+  "name": "decideRequest",
+  "options": {
+    "operation": "update_rows",
+    "table_id": "2966338b-c00d-4190-b654-e6f9a9e11c30",
+    "update_rows": {
+      "columns": {
+        "0": {
+          "column": "status",
+          "value": "{{parameters.status}}"
+        },
+        "1": {
+          "column": "decided_at",
+          "value": "{{parameters.decided_at}}"
+        }
+      },
+      "where_filters": {
+        "by-id": {
+          "column": "id",
+          "operator": "eq",
+          "value": "{{parameters.id}}"
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "id",
+        "defaultValue": 0
+      },
+      {
+        "name": "status",
+        "defaultValue": ""
+      },
+      {
+        "name": "decided_at",
+        "defaultValue": ""
+      }
+    ],
+    "runOnPageLoad": false
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "63908eb8-86f3-496b-8d1b-479ebf110196",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

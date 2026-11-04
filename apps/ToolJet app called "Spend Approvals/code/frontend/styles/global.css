@@ -1,0 +1,23 @@
+/*
+  App-wide styles, loaded last (the build puts this file after the code's own CSS), so a rule here wins over a UI
+  library's defaults without !important. Put library overrides and app-wide rules here rather than in components:
+
+    .ant-btn-primary { border-radius: var(--radius); }
+    .MuiDialog-paper { border-radius: var(--radius); }
+
+  Tailwind's @apply works here too.
+*/
+
+/* Figures line up in columns and in the money rail. */
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* A quiet rule used between the queue rows and under section headers. */
+.rail {
+  background-image: linear-gradient(to right, var(--border), transparent);
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 0;
+}

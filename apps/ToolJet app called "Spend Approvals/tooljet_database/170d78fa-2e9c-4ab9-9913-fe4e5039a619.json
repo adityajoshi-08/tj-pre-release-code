@@ -1,0 +1,114 @@
+{
+  "id": "170d78fa-2e9c-4ab9-9913-fe4e5039a619",
+  "table_name": "employees",
+  "schema": {
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "integer",
+        "column_default": "nextval(\"workspace_ec9ea579-76ca-4e08-95f8-2c9d6ea7d5ac\".\"47b086e8-ca40-4210-9a37-6cb9056e281d_id_seq\"",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "constraints_type": {
+          "is_not_null": true,
+          "is_primary_key": true,
+          "is_unique": false
+        },
+        "keytype": "PRIMARY KEY",
+        "column_id": "6993702f-dd40-4950-b5a7-919995783c91",
+        "configurations": {}
+      },
+      {
+        "column_name": "full_name",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": true,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "035241e7-696b-4d29-8c0a-3fe2710aecaa",
+        "configurations": {}
+      },
+      {
+        "column_name": "email",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": true,
+          "is_primary_key": false,
+          "is_unique": true
+        },
+        "keytype": "",
+        "column_id": "e6e89190-acff-4997-9e6b-f314ac77de23",
+        "configurations": {}
+      },
+      {
+        "column_name": "job_title",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "d9646c9d-ea6c-459c-b3ff-b1c6c064ac06",
+        "configurations": {}
+      },
+      {
+        "column_name": "department",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "218c9bdc-3a92-4ea9-ae60-28f04fef7af7",
+        "configurations": {}
+      },
+      {
+        "column_name": "cost_centre",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "c83e1c3f-a805-4286-8805-6d9ac7cc4686",
+        "configurations": {}
+      },
+      {
+        "column_name": "manager_email",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "98356c22-4ed2-4b9f-a20e-f2fc822454cc",
+        "configurations": {}
+      }
+    ],
+    "foreign_keys": []
+  }
+}

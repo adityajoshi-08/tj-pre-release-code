@@ -1,0 +1,30 @@
+{
+  "name": "Spend Approvals",
+  "codePage": {
+    "handle": "home",
+    "name": "Home"
+  },
+  "routes": [
+    {
+      "id": "requests",
+      "path": "/",
+      "title": "Requests"
+    },
+    {
+      "id": "queue",
+      "path": "/queue",
+      "title": "Approval queue"
+    },
+    {
+      "id": "spend",
+      "path": "/spend",
+      "title": "Spend dashboard"
+    },
+    {
+      "id": "request",
+      "path": "/requests/:id",
+      "title": "Request"
+    }
+  ],
+  "appId": "75f9f691-cd32-4093-8b7d-33f43e3cc2be"
+}
