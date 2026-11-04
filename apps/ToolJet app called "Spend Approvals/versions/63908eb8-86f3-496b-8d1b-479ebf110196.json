@@ -11,12 +11,120 @@
     "appMode": "light",
     "customComponentLibraries": {
       "77e2945b0584434899d362650cb185dd": "dev:0cc05fdd-08db-4629-9837-ad6eb4c48f2d"
+    },
+    "theme": {
+      "name": "PayTM UI",
+      "organizationId": "ec9ea579-76ca-4e08-95f8-2c9d6ea7d5ac",
+      "definition": {
+        "brand": {
+          "colors": {
+            "primary": {
+              "light": "#002970",
+              "dark": "#35C8F5"
+            },
+            "secondary": {
+              "light": "#00A9E0",
+              "dark": "#7FD8F7"
+            },
+            "tertiary": {
+              "light": "#0E9F6E",
+              "dark": "#4ADE80"
+            }
+          }
+        },
+        "text": {
+          "font": "DM Sans",
+          "colors": {
+            "primary": {
+              "light": "#0B2447",
+              "dark": "#EAF4FB"
+            },
+            "placeholder": {
+              "light": "#4F6B8A",
+              "dark": "#8FA9C6"
+            },
+            "disabled": {
+              "light": "#93A7BC",
+              "dark": "#5C7799"
+            }
+          }
+        },
+        "border": {
+          "radius": {
+            "default": 8,
+            "small": 4,
+            "large": 14
+          },
+          "colors": {
+            "default": {
+              "light": "#C6DAEA",
+              "dark": "#1E3F63"
+            },
+            "weak": {
+              "light": "#E2EEF8",
+              "dark": "#16324F"
+            },
+            "disabled": {
+              "light": "#EDF3F9",
+              "dark": "#12283F"
+            }
+          }
+        },
+        "systemStatus": {
+          "colors": {
+            "success": {
+              "light": "#0E9F6E",
+              "dark": "#34D399"
+            },
+            "error": {
+              "light": "#D92D20",
+              "dark": "#F87171"
+            },
+            "warning": {
+              "light": "#B45309",
+              "dark": "#FBBF24"
+            }
+          }
+        },
+        "surface": {
+          "colors": {
+            "appBackground": {
+              "light": "#EFF8FE",
+              "dark": "#071A33"
+            },
+            "surface1": {
+              "light": "#FFFFFF",
+              "dark": "#0C2444"
+            },
+            "surface2": {
+              "light": "#DFF2FD",
+              "dark": "#123055"
+            },
+            "surface3": {
+              "light": "#C6E9F9",
+              "dark": "#173A63"
+            }
+          }
+        }
+      },
+      "isDefault": false,
+      "isBasic": false,
+      "id": "ba2ec8a1-c963-4241-b700-6462f7a14a05",
+      "createdAt": "2026-11-04T20:22:58.510Z",
+      "updatedAt": "2026-11-04T20:22:58.510Z"
     }
   },
-  "pageSettings": null,
+  "pageSettings": {
+    "properties": {
+      "disableMenu": {
+        "value": "{{false}}",
+        "fxActive": false
+      }
+    }
+  },
   "showViewerNavigation": true,
   "homePageId": "9f8bffa9-d0b0-4416-864c-967cb4a89712",
-  "versionType": "version",
+  "versionType": "branch",
   "appId": "ae67b5ad-7b0a-49cc-9060-761ef66c860a",
   "promotedFrom": null,
   "status": "DRAFT",
@@ -25,6 +133,6 @@
   "releasedAt": null,
   "isStub": false,
   "sourceTag": null,
-  "workflowEnabled": null,
-  "isSynced": false
+  "workflowEnabled": false,
+  "isSynced": true
 }

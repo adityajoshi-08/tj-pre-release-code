@@ -36,13 +36,13 @@ const RequestsPage: React.FC = () => {
   return (
     <div className="space-y-7">
       <PageHeader
-        eyebrow="LumenTrust · spend approvals"
-        title="Requests"
+        eyebrow="LumenTrust · spend all approval"
+        title="All Requests"
         description="Purchase requests go to a manager first. Anything above $5,000 also goes to Finance before it is approved."
         action={
           <Button onClick={() => setNewOpen(true)}>
             <Plus className="h-4 w-4" aria-hidden="true" />
-            New request
+            Create New request
           </Button>
         }
       />
