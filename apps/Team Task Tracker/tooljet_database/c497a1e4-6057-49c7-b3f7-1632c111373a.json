@@ -1,0 +1,114 @@
+{
+  "id": "c497a1e4-6057-49c7-b3f7-1632c111373a",
+  "table_name": "tasks",
+  "schema": {
+    "columns": [
+      {
+        "column_name": "id",
+        "data_type": "integer",
+        "column_default": "nextval(\"workspace_ec9ea579-76ca-4e08-95f8-2c9d6ea7d5ac\".\"60ad0e0a-4071-4002-b1e1-7e2ffc96e892_id_seq\"",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "constraints_type": {
+          "is_not_null": true,
+          "is_primary_key": true,
+          "is_unique": false
+        },
+        "keytype": "PRIMARY KEY",
+        "column_id": "4ec9c013-c038-4449-9b54-3d350b5830d3",
+        "configurations": {}
+      },
+      {
+        "column_name": "title",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": true,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "6a273353-b5bc-4440-9b2c-7de7b26d5ceb",
+        "configurations": {}
+      },
+      {
+        "column_name": "assignee",
+        "data_type": "character varying",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "5c10e2c1-3c1c-4965-9713-4d1ea3a57013",
+        "configurations": {}
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "column_default": "To Do",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "614a304c-57f1-4feb-8fec-a3bd5634b18d",
+        "configurations": {}
+      },
+      {
+        "column_name": "priority",
+        "data_type": "character varying",
+        "column_default": "Medium",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "dcb4f227-13a9-4c6d-bb72-f8366fe0dcbc",
+        "configurations": {}
+      },
+      {
+        "column_name": "due_date",
+        "data_type": "timestamp with time zone",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "06a10133-5757-4efb-921d-c25505007faa",
+        "configurations": {}
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "column_default": null,
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "constraints_type": {
+          "is_not_null": false,
+          "is_primary_key": false,
+          "is_unique": false
+        },
+        "keytype": "",
+        "column_id": "f7807640-aaa0-41ae-a8b5-42c015d60fa0",
+        "configurations": {}
+      }
+    ],
+    "foreign_keys": []
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "a85475ab-bd7d-4c9e-b9cb-35f8d48c5ba0",
+  "name": "create_task",
+  "options": {
+    "create_row": {
+      "0": {
+        "column": "title",
+        "value": "{{parameters.title}}"
+      },
+      "1": {
+        "column": "assignee",
+        "value": "{{parameters.assignee}}"
+      },
+      "2": {
+        "column": "status",
+        "value": "{{parameters.status}}"
+      },
+      "3": {
+        "column": "priority",
+        "value": "{{parameters.priority}}"
+      },
+      "4": {
+        "column": "due_date",
+        "value": "{{parameters.due_date}}"
+      },
+      "5": {
+        "column": "created_at",
+        "value": "{{parameters.created_at}}"
+      }
+    },
+    "operation": "create_row",
+    "parameters": [
+      {
+        "defaultValue": "",
+        "name": "title"
+      },
+      {
+        "defaultValue": "",
+        "name": "assignee"
+      },
+      {
+        "defaultValue": "To Do",
+        "name": "status"
+      },
+      {
+        "defaultValue": "Medium",
+        "name": "priority"
+      },
+      {
+        "defaultValue": "",
+        "name": "due_date"
+      },
+      {
+        "defaultValue": "",
+        "name": "created_at"
+      }
+    ],
+    "requestConfirmation": false,
+    "runOnDependencyChange": false,
+    "runOnPageLoad": false,
+    "showSuccessNotification": false,
+    "table_id": "c497a1e4-6057-49c7-b3f7-1632c111373a"
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "867fccb5-eeb5-4967-8c04-3c2597d53b0d",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

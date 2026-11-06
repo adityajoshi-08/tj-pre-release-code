@@ -1,0 +1,131 @@
+{
+  "id": "867fccb5-eeb5-4967-8c04-3c2597d53b0d",
+  "definition": {},
+  "globalSettings": {
+    "appInMaintenance": false,
+    "canvasMaxWidth": 100,
+    "canvasMaxWidthType": "%",
+    "canvasMaxHeight": 2400,
+    "canvasBackgroundColor": "var(--cc-appBackground-surface)",
+    "backgroundFxQuery": "",
+    "appMode": "light",
+    "theme": {
+      "name": "Team Task Tracker",
+      "organizationId": "ec9ea579-76ca-4e08-95f8-2c9d6ea7d5ac",
+      "definition": {
+        "brand": {
+          "colors": {
+            "primary": {
+              "light": "#7C2D9C",
+              "dark": "#b569d4"
+            },
+            "secondary": {
+              "light": "#431f51",
+              "dark": "#d0b0dd"
+            },
+            "tertiary": {
+              "light": "#b12588",
+              "dark": "#e278c3"
+            }
+          }
+        },
+        "text": {
+          "font": "DM Sans",
+          "colors": {
+            "primary": {
+              "light": "#25182a",
+              "dark": "#f1edf2"
+            },
+            "placeholder": {
+              "light": "#796581",
+              "dark": "#aa9daf"
+            },
+            "disabled": {
+              "light": "#b1a5b6",
+              "dark": "#776a7c"
+            }
+          }
+        },
+        "border": {
+          "radius": {
+            "default": 10,
+            "small": 8,
+            "large": 14
+          },
+          "colors": {
+            "default": {
+              "light": "#dfd3e3",
+              "dark": "#403645"
+            },
+            "weak": {
+              "light": "#eae3ee",
+              "dark": "#332b36"
+            },
+            "disabled": {
+              "light": "#d4cad8",
+              "dark": "#4a404f"
+            }
+          }
+        },
+        "systemStatus": {
+          "colors": {
+            "success": {
+              "light": "#16A34A",
+              "dark": "#4ADE80"
+            },
+            "error": {
+              "light": "#DC2626",
+              "dark": "#F87171"
+            },
+            "warning": {
+              "light": "#D97706",
+              "dark": "#FBBF24"
+            }
+          }
+        },
+        "surface": {
+          "colors": {
+            "appBackground": {
+              "light": "#f7f3f9",
+              "dark": "#141016"
+            },
+            "surface1": {
+              "light": "#ffffff",
+              "dark": "#1e1820"
+            },
+            "surface2": {
+              "light": "#f2ebf4",
+              "dark": "#27202a"
+            },
+            "surface3": {
+              "light": "#e8dfec",
+              "dark": "#332b36"
+            }
+          }
+        }
+      },
+      "isDefault": false,
+      "isBasic": false,
+      "id": "d2f30088-6160-4b91-b7fe-b009700888c8",
+      "createdAt": "2026-11-05T19:03:03.793Z",
+      "updatedAt": "2026-11-05T19:03:03.793Z"
+    },
+    "customComponentLibraries": {
+      "ff8103a9d27b4fed8c368c4031983ba4": "dev:1d39b201-6d33-4914-a33c-1c5361268bf6"
+    }
+  },
+  "pageSettings": {},
+  "showViewerNavigation": true,
+  "homePageId": "06d5682b-d532-4b0f-aa26-f465d344c731",
+  "versionType": "branch",
+  "appId": "514cd8e2-6c8e-4b4c-8989-c7a6e3f6212e",
+  "promotedFrom": null,
+  "status": "DRAFT",
+  "description": null,
+  "publishedAt": null,
+  "releasedAt": null,
+  "isStub": false,
+  "sourceTag": null,
+  "workflowEnabled": null,
+  "isSynced": false
+}
