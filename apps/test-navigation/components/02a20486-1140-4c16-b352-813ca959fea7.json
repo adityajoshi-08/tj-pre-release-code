@@ -31,6 +31,9 @@
         "1052caf4-8c54-4b4d-80c2-d5880023e902",
         "f4ed63b6-c9c3-4da9-a86e-e7b3b6be7db1"
       ]
+    },
+    "collapseWhenHidden": {
+      "value": "{{false}}"
     }
   },
   "general": {},
@@ -40,13 +43,12 @@
     },
     "borderColor": {
       "value": "transparent"
-    }
-  },
-  "generalStyles": {
+    },
     "boxShadow": {
       "value": "0px 0px 0px 0px #00000040"
     }
   },
+  "generalStyles": {},
   "displayPreferences": {
     "showOnDesktop": {
       "value": "{{true}}"

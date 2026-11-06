@@ -15,7 +15,12 @@
         }
       }
     },
-    "runOnPageLoad": true
+    "runOnPageLoad": true,
+    "delete_rows": {
+      "limit": 1,
+      "order_column": "id",
+      "order_column_id": "6993702f-dd40-4950-b5a7-919995783c91"
+    }
   },
   "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
   "appVersionId": "8adf2af2-2fa1-43e8-a67c-19b7e68325a2",
