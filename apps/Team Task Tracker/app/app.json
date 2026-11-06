@@ -1,0 +1,16 @@
+{
+  "id": "514cd8e2-6c8e-4b4c-8989-c7a6e3f6212e",
+  "type": "front-end",
+  "slug": "ebc1ad04-4373-48a4-a010-a478091d43e4",
+  "isPublic": false,
+  "isMaintenanceOn": false,
+  "__loaded": true,
+  "aiGenerationMetadata": {
+    "threadId": "c8e77f94-21a4-437c-961f-63a81a9959ee",
+    "interrupt": null,
+    "interruptId": null
+  },
+  "appBuilderMode": "visual",
+  "icon": "folderupload",
+  "tooljetVersion": "3.21.93-beta-ee"
+}

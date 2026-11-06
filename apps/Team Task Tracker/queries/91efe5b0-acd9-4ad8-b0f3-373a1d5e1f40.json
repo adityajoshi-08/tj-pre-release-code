@@ -1,0 +1,32 @@
+{
+  "id": "91efe5b0-acd9-4ad8-b0f3-373a1d5e1f40",
+  "name": "my_tasks",
+  "options": {
+    "list_rows": {
+      "limit": 100,
+      "order_filters": {
+        "sort-due": {
+          "column": "due_date",
+          "id": "sort-due",
+          "order": "asc"
+        }
+      },
+      "where_filters": {
+        "f-assignee": {
+          "column": "assignee",
+          "id": "f-assignee",
+          "operator": "eq",
+          "value": "{{globals.server.currentUser.firstName}} {{globals.server.currentUser.lastName}}"
+        }
+      }
+    },
+    "operation": "list_rows",
+    "requestConfirmation": false,
+    "runOnPageLoad": true,
+    "table_id": "c497a1e4-6057-49c7-b3f7-1632c111373a"
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "867fccb5-eeb5-4967-8c04-3c2597d53b0d",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

@@ -1,0 +1,73 @@
+{
+  "id": "7691293e-add8-4bd4-af6d-a8cd941c3f9f",
+  "name": "update_task",
+  "options": {
+    "operation": "update_rows",
+    "parameters": [
+      {
+        "defaultValue": "",
+        "name": "id"
+      },
+      {
+        "defaultValue": "",
+        "name": "title"
+      },
+      {
+        "defaultValue": "",
+        "name": "assignee"
+      },
+      {
+        "defaultValue": "To Do",
+        "name": "status"
+      },
+      {
+        "defaultValue": "Medium",
+        "name": "priority"
+      },
+      {
+        "defaultValue": "",
+        "name": "due_date"
+      }
+    ],
+    "requestConfirmation": false,
+    "runOnDependencyChange": false,
+    "runOnPageLoad": false,
+    "showSuccessNotification": false,
+    "table_id": "c497a1e4-6057-49c7-b3f7-1632c111373a",
+    "update_rows": {
+      "columns": {
+        "0": {
+          "column": "title",
+          "value": "{{parameters.title}}"
+        },
+        "1": {
+          "column": "assignee",
+          "value": "{{parameters.assignee}}"
+        },
+        "2": {
+          "column": "status",
+          "value": "{{parameters.status}}"
+        },
+        "3": {
+          "column": "priority",
+          "value": "{{parameters.priority}}"
+        },
+        "4": {
+          "column": "due_date",
+          "value": "{{parameters.due_date}}"
+        }
+      },
+      "where_filters": {
+        "0": {
+          "column": "id",
+          "operator": "eq",
+          "value": "{{parameters.id}}"
+        }
+      }
+    }
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "867fccb5-eeb5-4967-8c04-3c2597d53b0d",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

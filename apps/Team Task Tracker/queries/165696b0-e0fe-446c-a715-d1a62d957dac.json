@@ -1,0 +1,58 @@
+{
+  "id": "165696b0-e0fe-446c-a715-d1a62d957dac",
+  "name": "tasks_page",
+  "options": {
+    "list_rows": {
+      "limit": 25,
+      "offset": "{{parameters.offset}}",
+      "order_filters": {
+        "sort-created": {
+          "column": "created_at",
+          "id": "sort-created",
+          "order": "desc"
+        }
+      },
+      "where_filters": {
+        "f-status": {
+          "column": "status",
+          "id": "f-status",
+          "operator": "ilike",
+          "value": "%{{parameters.status}}%"
+        },
+        "f-title": {
+          "column": "title",
+          "id": "f-title",
+          "operator": "ilike",
+          "value": "%{{parameters.q}}%"
+        }
+      }
+    },
+    "operation": "list_rows",
+    "parameters": [
+      {
+        "defaultValue": "",
+        "name": "q"
+      },
+      {
+        "defaultValue": "",
+        "name": "status"
+      },
+      {
+        "defaultValue": "0",
+        "name": "offset"
+      }
+    ],
+    "requestConfirmation": false,
+    "runOnPageLoad": true,
+    "table_id": "c497a1e4-6057-49c7-b3f7-1632c111373a",
+    "delete_rows": {
+      "limit": 1,
+      "order_column": "id",
+      "order_column_id": "4ec9c013-c038-4449-9b54-3d350b5830d3"
+    }
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "867fccb5-eeb5-4967-8c04-3c2597d53b0d",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

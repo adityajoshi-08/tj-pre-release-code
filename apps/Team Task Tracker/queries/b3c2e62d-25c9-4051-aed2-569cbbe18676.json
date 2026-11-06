@@ -1,0 +1,29 @@
+{
+  "id": "b3c2e62d-25c9-4051-aed2-569cbbe18676",
+  "name": "member_status_counts",
+  "options": {
+    "list_rows": {
+      "aggregates": {
+        "total": {
+          "aggFx": "count",
+          "column": "id"
+        }
+      },
+      "group_by": {
+        "by-assignee": [
+          "assignee",
+          "status"
+        ]
+      },
+      "limit": 300
+    },
+    "operation": "list_rows",
+    "requestConfirmation": false,
+    "runOnPageLoad": true,
+    "table_id": "c497a1e4-6057-49c7-b3f7-1632c111373a"
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "867fccb5-eeb5-4967-8c04-3c2597d53b0d",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}
