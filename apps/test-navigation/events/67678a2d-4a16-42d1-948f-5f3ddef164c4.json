@@ -6,7 +6,8 @@
     "key": "step",
     "value": "review",
     "eventId": "onClick",
-    "actionId": "set-custom-variable"
+    "actionId": "set-custom-variable",
+    "runOnlyIf": ""
   },
   "sourceId": "af243a3f-9b39-4045-a4c9-e6a76b528489",
   "target": "component",
