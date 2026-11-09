@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 /*
-  Where Radix portals (Select, Dialog, Tooltip) should render. The component lives in a ToolJet shadow root, so
-  document.body would put the popup outside the stylesheet; the host exposes a popup layer on the shadow root
+  Where Radix portals (Select, Dialog, DropdownMenu, Sheet) should render. The component may live in a ToolJet shadow
+  root, so document.body would put the popup outside the stylesheet; the host exposes a popup layer on the shadow root
   (`tjOverlay`) that shares the component's styles and sits above the canvas. Outside ToolJet (tests, storybook) the
   hook returns undefined and Radix falls back to document.body.
 */
@@ -18,3 +18,10 @@ export function usePortalContainer(anchor: React.RefObject<HTMLElement | null>):
   }, [anchor]);
   return container;
 }
+
+/** The popup layer for every portal in the app, provided once at the root (App/index.tsx). */
+export const PortalContainerContext = createContext<HTMLElement | undefined>(undefined);
+export const usePortalTarget = (explicit?: HTMLElement) => {
+  const fromContext = useContext(PortalContainerContext);
+  return explicit ?? fromContext;
+};

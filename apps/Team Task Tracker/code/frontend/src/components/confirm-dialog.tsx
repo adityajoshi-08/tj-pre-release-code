@@ -1,4 +1,5 @@
 import React from 'react';
+import { Loader2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './ui/dialog';
 
@@ -12,18 +13,20 @@ type Props = {
   onConfirm: () => void;
 };
 
+/** shadcn's AlertDialog layout: no close cross, Cancel and the destructive action bottom-right. */
 export const ConfirmDialog: React.FC<Props> = ({ open, onOpenChange, title, description, confirmLabel, busy, onConfirm }) => (
   <Dialog open={open} onOpenChange={(next) => (!busy ? onOpenChange(next) : undefined)}>
-    <DialogContent className="max-w-md">
+    <DialogContent role="alertdialog" showCloseButton={false} className="sm:max-w-md">
       <DialogHeader>
         <DialogTitle>{title}</DialogTitle>
         <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
       <DialogFooter>
         <Button type="button" variant="outline" onClick={() => onOpenChange(false)} disabled={busy}>
-          Keep it
+          Cancel
         </Button>
         <Button type="button" variant="destructive" onClick={onConfirm} disabled={busy}>
+          {busy ? <Loader2 className="animate-spin" aria-hidden="true" /> : null}
           {busy ? 'Deleting…' : confirmLabel}
         </Button>
       </DialogFooter>

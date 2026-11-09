@@ -33,6 +33,11 @@
           "value": "To Do"
         }
       }
+    },
+    "delete_rows": {
+      "limit": 1,
+      "order_column": "id",
+      "order_column_id": "4ec9c013-c038-4449-9b54-3d350b5830d3"
     }
   },
   "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",

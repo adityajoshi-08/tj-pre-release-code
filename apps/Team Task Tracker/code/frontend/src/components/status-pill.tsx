@@ -1,50 +1,52 @@
 import React from 'react';
+import { ArrowDown, ArrowRight, ArrowUp, Circle, CircleCheck, Timer, type LucideIcon } from 'lucide-react';
+import { Badge } from './ui/badge';
 import { cn } from '../lib/utils';
 
-type Tone = { wrap: string; dot: string };
-
-const STATUS_TONE: Record<string, Tone> = {
-  'To Do': { wrap: 'border-border bg-secondary', dot: 'bg-muted-foreground' },
-  'In Progress': { wrap: 'border-warning/30 bg-warning/10', dot: 'bg-warning' },
-  Done: { wrap: 'border-success/30 bg-success/10', dot: 'bg-success' },
+/** Status and priority, drawn the way shadcn's task example does: an icon that carries the meaning, then the word. */
+export const STATUS_META: Record<string, { Icon: LucideIcon; icon: string }> = {
+  'To Do': { Icon: Circle, icon: 'text-muted-foreground' },
+  'In Progress': { Icon: Timer, icon: 'text-warning' },
+  Done: { Icon: CircleCheck, icon: 'fill-success text-background' },
 };
 
-const PRIORITY_TONE: Record<string, Tone> = {
-  High: { wrap: 'border-destructive/30 bg-destructive/10', dot: 'bg-destructive' },
-  Medium: { wrap: 'border-primary/30 bg-primary/10', dot: 'bg-primary' },
-  Low: { wrap: 'border-border bg-secondary', dot: 'bg-muted-foreground/60' },
+export const PRIORITY_META: Record<string, { Icon: LucideIcon; icon: string }> = {
+  High: { Icon: ArrowUp, icon: 'text-destructive' },
+  Medium: { Icon: ArrowRight, icon: 'text-muted-foreground' },
+  Low: { Icon: ArrowDown, icon: 'text-muted-foreground' },
 };
 
-const FALLBACK: Tone = { wrap: 'border-border bg-secondary', dot: 'bg-muted-foreground' };
+export const StatusIcon: React.FC<{ value: string | null; className?: string }> = ({ value, className }) => {
+  const meta = STATUS_META[value || 'To Do'] ?? STATUS_META['To Do'];
+  return <meta.Icon className={cn('size-4 shrink-0', meta.icon, className)} aria-hidden="true" />;
+};
 
 export const StatusPill: React.FC<{ value: string | null }> = ({ value }) => {
   const label = value || 'To Do';
-  const tone = STATUS_TONE[label] ?? FALLBACK;
+  const meta = STATUS_META[label] ?? STATUS_META['To Do'];
   return (
-    <span
-      className={cn(
-        'inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-medium text-foreground',
-        tone.wrap
-      )}
-    >
-      <span className={cn('size-1.5 rounded-full', tone.dot)} aria-hidden="true" />
+    <Badge variant="outline" className="px-1.5 text-muted-foreground [&>svg]:size-3.5">
+      <meta.Icon className={meta.icon} aria-hidden="true" />
       {label}
-    </span>
+    </Badge>
   );
 };
 
-export const PriorityPill: React.FC<{ value: string | null }> = ({ value }) => {
+export const PriorityPill: React.FC<{ value: string | null; plain?: boolean }> = ({ value, plain }) => {
   const label = value || 'Medium';
-  const tone = PRIORITY_TONE[label] ?? FALLBACK;
+  const meta = PRIORITY_META[label] ?? PRIORITY_META.Medium;
+  if (plain) {
+    return (
+      <span className="flex items-center gap-2">
+        <meta.Icon className={cn('size-4', meta.icon)} aria-hidden="true" />
+        {label}
+      </span>
+    );
+  }
   return (
-    <span
-      className={cn(
-        'inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-medium text-foreground',
-        tone.wrap
-      )}
-    >
-      <span className={cn('size-1.5 rounded-full', tone.dot)} aria-hidden="true" />
+    <Badge variant="outline" className="px-1.5 text-muted-foreground [&>svg]:size-3.5">
+      <meta.Icon className={meta.icon} aria-hidden="true" />
       {label}
-    </span>
+    </Badge>
   );
 };

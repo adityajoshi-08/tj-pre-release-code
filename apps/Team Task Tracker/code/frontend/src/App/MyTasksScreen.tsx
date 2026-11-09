@@ -1,25 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { CalendarClock, CheckCircle2, Inbox, Loader2, Play, Plus, Users, X } from 'lucide-react';
+import { CalendarClock, CircleAlert, CircleCheck, Inbox, Loader2, Play, Plus } from 'lucide-react';
 import { ToolJet } from '@tooljet/custom-component-sdk';
-import { AppHeader } from '../components/app-header';
+import { PageHeader } from '../components/app-shell';
+import { Alert, AlertDescription, AlertTitle } from '../components/ui/alert';
+import { Avatar, AvatarFallback } from '../components/ui/avatar';
+import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
-import { Card } from '../components/ui/card';
-import { PriorityPill, StatusPill } from '../components/status-pill';
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
+import { Progress } from '../components/ui/progress';
+import { Skeleton } from '../components/ui/skeleton';
+import { PriorityPill, StatusIcon, StatusPill } from '../components/status-pill';
 import { TaskFormDialog } from '../components/task-form-dialog';
+import { Toaster, useToast } from '../components/toaster';
 import { addDaysKey, dueKey, duePhrase, firstName, initials, todayKey } from '../lib/task-dates';
 import { useAppQuery, type TasksRow } from '../tooljet.gen';
 import { cn } from '../lib/utils';
+
+const FIGURES = [
+  { key: 'todo' as const, label: 'To do', status: 'To Do', bar: 'bg-muted-foreground' },
+  { key: 'inProgress' as const, label: 'In progress', status: 'In Progress', bar: 'bg-warning' },
+  { key: 'done' as const, label: 'Done', status: 'Done', bar: 'bg-success' },
+];
 
 type CountRow = { assignee?: string | null; status?: string | null; tasks_id_count?: number | string | null };
 type Viewer = { name?: string | null; email?: string | null; firstName?: string | null; lastName?: string | null };
 type Member = { name: string; todo: number; inProgress: number; done: number; open: number; total: number };
 type TaskGroup = { id: string; label: string; dot: string; tasks: TasksRow[] };
 
-const FIGURES = [
-  { key: 'todo' as const, label: 'To do', bar: 'bg-muted-foreground' },
-  { key: 'inProgress' as const, label: 'In progress', bar: 'bg-warning' },
-  { key: 'done' as const, label: 'Done', bar: 'bg-success' },
-];
+
 
 /** True when the write reported the row it was meant to change. */
 const writeLanded = (result: unknown) => {
@@ -100,7 +108,7 @@ export const MyTasksScreen: React.FC = () => {
   const [userPicked, setUserPicked] = useState(false);
   const [busyId, setBusyId] = useState<number | null>(null);
   const [formOpen, setFormOpen] = useState(false);
-  const [toast, setToast] = useState<string | null>(null);
+  const { toast, show: showToast, dismiss: dismissToast } = useToast();
 
   const myRows = (myTasksQuery.data ?? []) as TasksRow[];
   const countRows = (countsQuery.data ?? []) as unknown as CountRow[];
@@ -146,12 +154,6 @@ export const MyTasksScreen: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected, myAssignee]);
 
-  useEffect(() => {
-    if (!toast) return;
-    const handle = setTimeout(() => setToast(null), 4500);
-    return () => clearTimeout(handle);
-  }, [toast]);
-
   const refresh = async () => {
     const jobs: Promise<unknown>[] = [countsQuery.run(), myTasksQuery.run()];
     if (selected && selected !== myAssignee) jobs.push(memberTasksQuery.run({ member: selected }));
@@ -168,16 +170,16 @@ export const MyTasksScreen: React.FC = () => {
       const result = kind === 'start' ? await startTask.run({ id: task.id }) : await completeTask.run({ id: task.id });
       await refresh();
       if (writeLanded(result)) {
-        setToast(
+        showToast(
           kind === 'start'
             ? `“${shorten(task.title)}” is in progress now`
             : `“${shorten(task.title)}” is done`
         );
       } else {
-        setToast(`“${shorten(task.title)}” had already moved on, so nothing changed`);
+        showToast(`“${shorten(task.title)}” had already moved on, so nothing changed`, 'error');
       }
     } catch (err) {
-      setToast(err instanceof Error ? err.message : 'Could not update that task. Try again.');
+      showToast(err instanceof Error ? err.message : 'Could not update that task. Try again.', 'error');
     } finally {
       setBusyId(null);
     }
@@ -185,286 +187,300 @@ export const MyTasksScreen: React.FC = () => {
 
   const handleSaved = (message: string) => {
     setFormOpen(false);
-    setToast(message);
+    showToast(message);
     void refresh();
   };
 
   const listTitle = isMine ? 'Your list' : selected ? `${firstName(selected)}’s list` : 'The list';
 
   return (
-    <div className="flex min-h-full flex-col bg-page">
-      <AppHeader
-        actions={
-          <Button onClick={() => setFormOpen(true)} className="shrink-0">
-            <Plus aria-hidden="true" />
-            <span className="hidden sm:inline">Add task</span>
-            <span className="sm:hidden">Add</span>
-          </Button>
-        }
-      />
+    <>
+      <div className="flex flex-1 flex-col gap-6 p-4 md:p-6">
+        <PageHeader
+          title="My tasks"
+          description={
+            <>
+              What each person on the team has taken on, soonest due first. Signed in as{' '}
+              <span className="font-medium text-foreground">{viewerName || 'a teammate'}</span>.
+            </>
+          }
+          actions={
+            <Button onClick={() => setFormOpen(true)}>
+              <Plus aria-hidden="true" />
+              Add task
+            </Button>
+          }
+        />
 
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 pb-14 sm:px-6 sm:py-8">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <h1 className="text-xl font-semibold tracking-tight text-balance sm:text-2xl">My tasks</h1>
-            <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-              What each person on the team has taken on, soonest due first.
-            </p>
-          </div>
-          <p className="text-xs text-muted-foreground sm:text-sm">
-            Signed in as <span className="font-medium text-foreground">{viewerName || 'a teammate'}</span>
-          </p>
-        </div>
+        <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <Card className="gap-0 overflow-hidden py-0">
+            <CardHeader className="border-b py-5">
+              <CardTitle>{listTitle}</CardTitle>
+              <CardDescription>
+                {member
+                  ? `${member.open} open · ${member.done} done`
+                  : countsQuery.loading
+                    ? 'Loading the list'
+                    : 'No tasks yet'}
+              </CardDescription>
+              {member ? (
+                <CardAction>
+                  {overdueCount > 0 ? (
+                    <Badge variant="danger">
+                      <CircleAlert aria-hidden="true" />
+                      {overdueCount} overdue
+                    </Badge>
+                  ) : (
+                    <Badge variant="outline" className="text-muted-foreground">
+                      <CalendarClock aria-hidden="true" />
+                      Nothing overdue
+                    </Badge>
+                  )}
+                </CardAction>
+              ) : null}
+            </CardHeader>
 
-        <Card className="mt-5 overflow-hidden">
-          <div className="flex items-center gap-2 border-b border-border bg-secondary/40 px-4 py-2.5">
-            <Users className="size-4 text-primary" aria-hidden="true" />
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Team</p>
-            <p className="ml-auto text-xs text-muted-foreground">
-              {members.length > 0 ? `${members.length} people` : 'No assignments yet'}
-            </p>
-          </div>
-          {countsQuery.loading && members.length === 0 ? (
-            <div className="flex gap-2 overflow-hidden px-3 py-3">
-              {Array.from({ length: 4 }).map((_, index) => (
-                <div key={index} className="h-9 w-32 shrink-0 animate-pulse rounded-full bg-secondary" />
-              ))}
-            </div>
-          ) : null}
-          {!countsQuery.loading && members.length === 0 ? (
-            <p className="px-4 py-3 text-xs text-muted-foreground">No one has a task on the list yet.</p>
-          ) : null}
-          {members.length > 0 ? (
-            <div className="flex gap-2 overflow-x-auto px-3 py-3">
-              {members.map((entry) => {
-                const active = entry.name === selected;
-                const you = myAssignee
-                  ? entry.name === myAssignee
-                  : viewerName !== '' && entry.name.toLowerCase() === viewerName.toLowerCase();
-                return (
-                  <button
-                    key={entry.name}
-                    type="button"
-                    aria-pressed={active}
-                    onClick={() => {
-                      setUserPicked(true);
-                      setSelected(entry.name);
-                    }}
-                    className={cn(
-                      'flex shrink-0 items-center gap-2 rounded-full border px-2.5 py-1.5 transition-colors',
-                      active
-                        ? 'border-primary bg-primary/10 text-foreground shadow-sm'
-                        : 'border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground'
-                    )}
-                  >
-                    <span
-                      className={cn(
-                        'flex size-6 items-center justify-center rounded-full text-[10px] font-semibold',
-                        active ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
-                      )}
-                    >
-                      {initials(entry.name)}
-                    </span>
-                    <span className="text-xs font-medium">{entry.name}</span>
-                    {you ? (
-                      <span className="rounded-full bg-primary/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
-                        you
-                      </span>
-                    ) : null}
-                    <span className="rounded-full bg-secondary px-1.5 py-0.5 text-[11px] font-semibold tabular-nums text-foreground">
-                      {entry.open}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          ) : null}
-        </Card>
+            {viewLoading && viewRows.length === 0 ? (
+              <div className="divide-y">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <div key={index} className="flex items-center gap-3 px-6 py-4">
+                    <Skeleton className="size-4 rounded-full" />
+                    <div className="flex-1 space-y-2">
+                      <Skeleton className="h-4 w-2/3" />
+                      <Skeleton className="h-3 w-1/3" />
+                    </div>
+                    <Skeleton className="h-8 w-20" />
+                  </div>
+                ))}
+              </div>
+            ) : null}
 
-        <div className="mt-5 grid gap-5 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <Card className="overflow-hidden">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border px-4 py-3">
-                <div>
-                  <p className="text-sm font-semibold">{listTitle}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {member
-                      ? `${member.open} open · ${member.done} done`
-                      : countsQuery.loading
-                        ? 'Loading the list'
-                        : 'No tasks yet'}
+            {!viewLoading && viewError && viewRows.length === 0 ? (
+              <div className="p-6">
+                <Alert variant="destructive">
+                  <CircleAlert aria-hidden="true" />
+                  <AlertTitle>That list could not be loaded.</AlertTitle>
+                  <AlertDescription>{viewError.message}</AlertDescription>
+                </Alert>
+              </div>
+            ) : null}
+
+            {!viewLoading && !viewError && groups.length === 0 ? (
+              <div className="flex flex-col items-center justify-center gap-4 px-6 py-16 text-center">
+                <span className="flex size-10 items-center justify-center rounded-lg bg-muted text-foreground">
+                  <Inbox className="size-5" aria-hidden="true" />
+                </span>
+                <div className="space-y-1">
+                  <p className="text-base font-medium">
+                    {isMine
+                      ? 'Nothing on your list right now'
+                      : selected
+                        ? `Nothing on ${firstName(selected)}’s list right now`
+                        : 'No tasks on the list yet'}
+                  </p>
+                  <p className="mx-auto max-w-sm text-sm text-muted-foreground">
+                    {isMine
+                      ? 'Work assigned to you lands here, with the day it is due.'
+                      : 'Add a task and put a name on it, or open another teammate.'}
                   </p>
                 </div>
-                {member ? (
-                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <CalendarClock className="size-3.5" aria-hidden="true" />
-                    {overdueCount > 0 ? (
-                      <span className="font-medium text-destructive">{overdueCount} overdue</span>
-                    ) : (
-                      <span>Nothing overdue</span>
-                    )}
-                  </span>
-                ) : null}
+                <Button size="sm" onClick={() => setFormOpen(true)}>
+                  <Plus aria-hidden="true" />
+                  Add task
+                </Button>
               </div>
+            ) : null}
 
-              {viewLoading && viewRows.length === 0 ? (
-                <div className="divide-y divide-border">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <div key={index} className="flex items-center gap-3 px-4 py-3.5">
-                      <div className="h-4 w-40 animate-pulse rounded bg-secondary" />
-                      <div className="ml-auto h-4 w-16 animate-pulse rounded bg-secondary" />
-                    </div>
-                  ))}
+            {groups.map((group) => (
+              <section key={group.id} aria-labelledby={`group-${group.id}`}>
+                <div className="flex items-center gap-2 border-b bg-muted/50 px-6 py-2">
+                  <span className={cn('size-1.5 rounded-full', group.dot)} aria-hidden="true" />
+                  <h2 id={`group-${group.id}`} className="text-xs font-medium text-muted-foreground">
+                    {group.label}
+                  </h2>
+                  <Badge variant="secondary" className="h-5 min-w-5 rounded-full px-1.5 font-mono tabular-nums">
+                    {group.tasks.length}
+                  </Badge>
                 </div>
-              ) : null}
-
-              {!viewLoading && viewError && viewRows.length === 0 ? (
-                <p role="alert" className="px-4 py-6 text-sm text-destructive">
-                  That list could not be loaded. {viewError.message}
-                </p>
-              ) : null}
-
-              {!viewLoading && !viewError && groups.length === 0 ? (
-                <div className="flex flex-col items-center justify-center gap-3 px-6 py-14 text-center">
-                  <span className="flex size-11 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Inbox className="size-5" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <p className="font-medium">
-                      {isMine
-                        ? 'Nothing on your list right now'
-                        : selected
-                          ? `Nothing on ${firstName(selected)}’s list right now`
-                          : 'No tasks on the list yet'}
-                    </p>
-                    <p className="mx-auto mt-1 max-w-sm text-sm text-muted-foreground">
-                      {isMine
-                        ? 'Work assigned to you lands here, with the day it is due.'
-                        : 'Add a task and put a name on it, or open another teammate above.'}
-                    </p>
-                  </div>
-                  <Button size="sm" onClick={() => setFormOpen(true)}>
-                    <Plus aria-hidden="true" />
-                    Add task
-                  </Button>
-                </div>
-              ) : null}
-
-              {groups.map((group) => (
-                <section key={group.id}>
-                  <div className="flex items-center gap-2 bg-secondary/30 px-4 py-2">
-                    <span className={cn('size-1.5 rounded-full', group.dot)} aria-hidden="true" />
-                    <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">{group.label}</h2>
-                    <span className="text-[11px] font-medium tabular-nums text-muted-foreground">{group.tasks.length}</span>
-                  </div>
-                  <ul className="divide-y divide-border">
-                    {group.tasks.map((task) => {
-                      const key = dueKey(task.due_date);
-                      const overdue = key !== '' && key < today && task.status !== 'Done';
-                      const busy = busyId === task.id;
-                      return (
-                        <li key={task.id} className="flex items-start gap-3 px-4 py-3">
-                          <div className="min-w-0 flex-1">
-                            <p
-                              className={cn(
-                                'truncate text-sm font-medium',
-                                task.status === 'Done' && 'text-muted-foreground line-through decoration-border'
-                              )}
-                              title={task.title}
-                            >
-                              {task.title}
-                            </p>
-                            <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs text-muted-foreground">
-                              <PriorityPill value={task.priority} />
-                              <StatusPill value={task.status} />
-                              <span
-                                className={cn(
-                                  'flex items-center gap-1 whitespace-nowrap',
-                                  overdue && 'font-medium text-destructive'
-                                )}
-                              >
-                                <CalendarClock className="size-3.5" aria-hidden="true" />
-                                {duePhrase(task.due_date, today)}
-                              </span>
-                            </div>
+                <ul className="divide-y border-b last:border-b-0">
+                  {group.tasks.map((task) => {
+                    const key = dueKey(task.due_date);
+                    const overdue = key !== '' && key < today && task.status !== 'Done';
+                    const busy = busyId === task.id;
+                    return (
+                      <li key={task.id} className="flex items-center gap-3 px-6 py-3 transition-colors hover:bg-muted/30">
+                        <StatusIcon value={task.status} />
+                        <div className="min-w-0 flex-1">
+                          <p
+                            className={cn(
+                              'truncate text-sm font-medium',
+                              task.status === 'Done' && 'text-muted-foreground line-through decoration-muted-foreground/50'
+                            )}
+                            title={task.title}
+                          >
+                            {task.title}
+                          </p>
+                          <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs text-muted-foreground">
+                            <PriorityPill value={task.priority} />
+                            <StatusPill value={task.status} />
+                            <span className={cn('flex items-center gap-1 whitespace-nowrap', overdue && 'font-medium text-destructive')}>
+                              <CalendarClock className="size-3.5" aria-hidden="true" />
+                              {duePhrase(task.due_date, today)}
+                            </span>
                           </div>
-                          {task.status === 'To Do' ? (
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              className="shrink-0"
-                              disabled={busy}
-                              onClick={() => advance(task, 'start')}
-                              aria-label={`Start ${task.title}`}
-                            >
-                              {busy ? <Loader2 className="animate-spin" aria-hidden="true" /> : <Play aria-hidden="true" />}
-                              <span className="hidden sm:inline">Start</span>
-                            </Button>
-                          ) : task.status === 'In Progress' ? (
-                            <Button
-                              size="sm"
-                              className="shrink-0"
-                              disabled={busy}
-                              onClick={() => advance(task, 'done')}
-                              aria-label={`Mark ${task.title} done`}
-                            >
-                              {busy ? <Loader2 className="animate-spin" aria-hidden="true" /> : <CheckCircle2 aria-hidden="true" />}
-                              <span className="hidden sm:inline">Mark done</span>
-                            </Button>
-                          ) : null}
+                        </div>
+                        {task.status === 'To Do' ? (
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            disabled={busy}
+                            onClick={() => advance(task, 'start')}
+                            aria-label={`Start ${task.title}`}
+                          >
+                            {busy ? <Loader2 className="animate-spin" aria-hidden="true" /> : <Play aria-hidden="true" />}
+                            <span className="hidden sm:inline">Start</span>
+                          </Button>
+                        ) : task.status === 'In Progress' ? (
+                          <Button
+                            size="sm"
+                            disabled={busy}
+                            onClick={() => advance(task, 'done')}
+                            aria-label={`Mark ${task.title} done`}
+                          >
+                            {busy ? <Loader2 className="animate-spin" aria-hidden="true" /> : <CircleCheck aria-hidden="true" />}
+                            <span className="hidden sm:inline">Mark done</span>
+                          </Button>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </section>
+            ))}
+          </Card>
+
+          {/* On a phone: the team picker, then the list, then the progress card. */}
+          <div className="contents lg:flex lg:flex-col lg:gap-4">
+            <Card className="order-first gap-4 lg:order-none">
+              <CardHeader>
+                <CardTitle>Team</CardTitle>
+                <CardDescription>
+                  {members.length > 0 ? `${members.length} people · choose whose list to see` : 'No assignments yet'}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="px-3">
+                {countsQuery.loading && members.length === 0 ? (
+                  <div className="space-y-1">
+                    {Array.from({ length: 4 }).map((_, index) => (
+                      <div key={index} className="flex items-center gap-3 px-3 py-2">
+                        <Skeleton className="size-8 rounded-full" />
+                        <Skeleton className="h-4 flex-1" />
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+                {!countsQuery.loading && members.length === 0 ? (
+                  <p className="px-3 text-sm text-muted-foreground">No one has a task on the list yet.</p>
+                ) : null}
+                {members.length > 0 ? (
+                  <ul className="flex max-h-72 flex-col gap-0.5 overflow-y-auto lg:max-h-80">
+                    {members.map((entry) => {
+                      const active = entry.name === selected;
+                      const you = myAssignee
+                        ? entry.name === myAssignee
+                        : viewerName !== '' && entry.name.toLowerCase() === viewerName.toLowerCase();
+                      return (
+                        <li key={entry.name}>
+                          <button
+                            type="button"
+                            aria-pressed={active}
+                            onClick={() => {
+                              setUserPicked(true);
+                              setSelected(entry.name);
+                            }}
+                            className={cn(
+                              'flex w-full items-center gap-3 rounded-md px-3 py-2 text-left text-sm outline-none transition-colors hover:bg-accent focus-visible:ring-[3px] focus-visible:ring-ring/50',
+                              active && 'bg-accent'
+                            )}
+                          >
+                            <Avatar>
+                              <AvatarFallback className={cn(active && 'bg-primary text-primary-foreground')}>
+                                {initials(entry.name)}
+                              </AvatarFallback>
+                            </Avatar>
+                            <span className="min-w-0 flex-1">
+                              <span className="flex items-center gap-1.5">
+                                <span className="truncate font-medium">{entry.name}</span>
+                                {you ? (
+                                  <Badge variant="secondary" className="px-1.5 py-0 text-[10px]">
+                                    You
+                                  </Badge>
+                                ) : null}
+                              </span>
+                              <span className="block text-xs text-muted-foreground">
+                                {entry.open} open · {entry.done} done
+                              </span>
+                            </span>
+                          </button>
                         </li>
                       );
                     })}
                   </ul>
-                </section>
-              ))}
+                ) : null}
+              </CardContent>
             </Card>
-          </div>
 
-          <div className="lg:col-span-1">
-            <Card className="p-4">
-              <div className="flex items-center gap-3">
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
-                  {selected ? initials(selected) : '?'}
-                </span>
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold">{selected || 'No list chosen'}</p>
-                  <p className="text-xs text-muted-foreground">{isMine ? 'You' : selected ? 'Teammate' : 'No list chosen'}</p>
-                </div>
-              </div>
-
-              <dl className="mt-4 space-y-3">
-                {FIGURES.map((figure) => {
-                  const value = member ? member[figure.key] : 0;
-                  const share = member && member.total > 0 ? Math.round((value / member.total) * 100) : 0;
-                  return (
-                    <div key={figure.key}>
-                      <div className="flex items-baseline justify-between gap-2">
-                        <dt className="text-xs font-medium text-muted-foreground">{figure.label}</dt>
-                        <dd className="text-sm font-semibold tabular-nums">{value}</dd>
+            <Card className="gap-5">
+              <CardHeader>
+                <CardDescription>{isMine ? 'Your progress' : selected ? 'Their progress' : 'Progress'}</CardDescription>
+                <CardTitle className="flex items-center gap-3 text-base">
+                  <Avatar className="size-9">
+                    <AvatarFallback className="bg-primary text-primary-foreground">{selected ? initials(selected) : '?'}</AvatarFallback>
+                  </Avatar>
+                  <span className="min-w-0">
+                    <span className="block truncate">{selected || 'No list chosen'}</span>
+                    <span className="block text-xs font-normal text-muted-foreground">
+                      {isMine ? 'You' : selected ? 'Teammate' : 'Pick someone from the team'}
+                    </span>
+                  </span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <dl className="space-y-4">
+                  {FIGURES.map((figure) => {
+                    const value = member ? member[figure.key] : 0;
+                    const share = member && member.total > 0 ? Math.round((value / member.total) * 100) : 0;
+                    return (
+                      <div key={figure.key} className="space-y-2">
+                        <div className="flex items-center justify-between gap-2 text-sm">
+                          <dt className="flex items-center gap-2 text-muted-foreground">
+                            <StatusIcon value={figure.status} className="size-3.5" />
+                            {figure.label}
+                          </dt>
+                          <dd className="font-medium tabular-nums">
+                            {value}
+                            <span className="ml-1 text-xs font-normal text-muted-foreground">{share}%</span>
+                          </dd>
+                        </div>
+                        <Progress value={share} className="h-1.5 bg-muted" indicatorClassName={figure.bar} />
                       </div>
-                      <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-secondary">
-                        <div
-                          className={cn('h-full rounded-full transition-[width] duration-500', figure.bar)}
-                          style={{ width: `${share}%` }}
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
-              </dl>
-
-              <div className="mt-4 rounded-md border border-border bg-secondary/40 px-3 py-2.5 text-xs leading-relaxed text-muted-foreground">
-                <span className={cn('font-semibold', overdueCount > 0 ? 'text-destructive' : 'text-foreground')}>
-                  {overdueCount} overdue
-                </span>
-                {' · '}
-                <span className="font-semibold text-foreground">{dueSoonCount}</span> due in the next 7 days
-              </div>
+                    );
+                  })}
+                </dl>
+              </CardContent>
+              <CardFooter className="border-t pt-5 text-sm">
+                <p className="text-muted-foreground">
+                  <span className={cn('font-medium', overdueCount > 0 ? 'text-destructive' : 'text-foreground')}>
+                    {overdueCount} overdue
+                  </span>
+                  {' · '}
+                  <span className="font-medium text-foreground tabular-nums">{dueSoonCount}</span> due in the next 7 days
+                </p>
+              </CardFooter>
             </Card>
           </div>
         </div>
-      </main>
+      </div>
 
       <TaskFormDialog
         open={formOpen}
@@ -474,25 +490,7 @@ export const MyTasksScreen: React.FC = () => {
         onSaved={handleSaved}
       />
 
-      <div
-        aria-live="polite"
-        className="pointer-events-none fixed inset-x-0 bottom-4 z-40 flex justify-center px-4 sm:bottom-6 sm:justify-end sm:px-6"
-      >
-        {toast ? (
-          <div className="pointer-events-auto flex max-w-sm items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm font-medium shadow-lg">
-            <CheckCircle2 className="size-4 shrink-0 text-success" aria-hidden="true" />
-            <span className="min-w-0">{toast}</span>
-            <button
-              type="button"
-              className="ml-1 shrink-0 rounded p-0.5 text-muted-foreground hover:bg-accent"
-              onClick={() => setToast(null)}
-              aria-label="Dismiss message"
-            >
-              <X className="size-3.5" aria-hidden="true" />
-            </button>
-          </div>
-        ) : null}
-      </div>
-    </div>
+      <Toaster toast={toast} onDismiss={dismissToast} />
+    </>
   );
 };

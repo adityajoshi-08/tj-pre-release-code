@@ -3,6 +3,7 @@ import * as TabsPrimitive from '@radix-ui/react-tabs';
 import * as SwitchPrimitive from '@radix-ui/react-switch';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 import { cn } from '../../lib/utils';
+import { usePortalTarget } from '../../lib/portal';
 
 const Tabs = TabsPrimitive.Root;
 
@@ -65,7 +66,7 @@ const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> & { container?: HTMLElement }
 >(({ className, sideOffset = 4, container, ...props }, ref) => (
-  <TooltipPrimitive.Portal container={container}>
+  <TooltipPrimitive.Portal container={usePortalTarget(container)}>
     <TooltipPrimitive.Content
       ref={ref}
       sideOffset={sideOffset}

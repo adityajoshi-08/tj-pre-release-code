@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './ui/dialog';
-import { Input } from './ui/input';
+import { CircleAlert, Loader2 } from 'lucide-react';
+import { Alert, AlertTitle } from './ui/alert';
+import { Input, Label } from './ui/input';
+import { PriorityPill, StatusIcon } from './status-pill';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { useAppQuery, type TasksRow } from '../tooljet.gen';
 
@@ -97,8 +100,8 @@ export const TaskFormDialog: React.FC<Props> = ({ open, onOpenChange, task, onSa
 
   return (
     <Dialog open={open} onOpenChange={(next) => (!saving ? onOpenChange(next) : undefined)}>
-      <DialogContent>
-        <form onSubmit={submit} noValidate>
+      <DialogContent className="sm:max-w-[520px]">
+        <form onSubmit={submit} noValidate className="grid gap-6">
           <DialogHeader>
             <DialogTitle>{task ? 'Edit task' : 'Add a task'}</DialogTitle>
             <DialogDescription>
@@ -106,25 +109,22 @@ export const TaskFormDialog: React.FC<Props> = ({ open, onOpenChange, task, onSa
             </DialogDescription>
           </DialogHeader>
 
-          <div className="grid gap-4 p-5">
-            <div className="grid gap-1.5">
-              <label htmlFor="task-title" className="text-sm font-medium">
-                Title
-              </label>
+          <div className="grid gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="task-title">Title</Label>
               <Input
                 id="task-title"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
                 placeholder="e.g. Fix the invoice PDF layout"
+                aria-invalid={error !== null && !title.trim() ? true : undefined}
                 autoFocus
               />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="grid gap-1.5">
-                <label htmlFor="task-assignee" className="text-sm font-medium">
-                  Assignee
-                </label>
+              <div className="grid gap-2">
+                <Label htmlFor="task-assignee">Assignee</Label>
                 <Input
                   id="task-assignee"
                   value={assignee}
@@ -133,24 +133,22 @@ export const TaskFormDialog: React.FC<Props> = ({ open, onOpenChange, task, onSa
                   autoComplete="off"
                 />
               </div>
-              <div className="grid gap-1.5">
-                <label htmlFor="task-due-date" className="text-sm font-medium">
-                  Due date
-                </label>
+              <div className="grid gap-2">
+                <Label htmlFor="task-due-date">Due date</Label>
                 <Input
                   id="task-due-date"
                   type="date"
                   value={dueDate}
                   onChange={(event) => setDueDate(event.target.value)}
+                  aria-invalid={error !== null && !dueDate ? true : undefined}
+                  className="[color-scheme:light] dark:[color-scheme:dark]"
                 />
               </div>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="grid gap-1.5">
-                <label htmlFor="task-status" className="text-sm font-medium">
-                  Status
-                </label>
+              <div className="grid gap-2">
+                <Label htmlFor="task-status">Status</Label>
                 <Select value={status} onValueChange={setStatus}>
                   <SelectTrigger id="task-status" aria-label="Status">
                     <SelectValue />
@@ -158,16 +156,17 @@ export const TaskFormDialog: React.FC<Props> = ({ open, onOpenChange, task, onSa
                   <SelectContent>
                     {STATUSES.map((value) => (
                       <SelectItem key={value} value={value}>
-                        {value}
+                        <span className="flex items-center gap-2">
+                          <StatusIcon value={value} />
+                          {value}
+                        </span>
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
-              <div className="grid gap-1.5">
-                <label htmlFor="task-priority" className="text-sm font-medium">
-                  Priority
-                </label>
+              <div className="grid gap-2">
+                <Label htmlFor="task-priority">Priority</Label>
                 <Select value={priority} onValueChange={setPriority}>
                   <SelectTrigger id="task-priority" aria-label="Priority">
                     <SelectValue />
@@ -175,7 +174,7 @@ export const TaskFormDialog: React.FC<Props> = ({ open, onOpenChange, task, onSa
                   <SelectContent>
                     {PRIORITIES.map((value) => (
                       <SelectItem key={value} value={value}>
-                        {value}
+                        <PriorityPill value={value} plain />
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -184,9 +183,10 @@ export const TaskFormDialog: React.FC<Props> = ({ open, onOpenChange, task, onSa
             </div>
 
             {error ? (
-              <p role="alert" className="rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-foreground">
-                {error}
-              </p>
+              <Alert variant="destructive">
+                <CircleAlert aria-hidden="true" />
+                <AlertTitle>{error}</AlertTitle>
+              </Alert>
             ) : null}
           </div>
 
@@ -195,7 +195,8 @@ export const TaskFormDialog: React.FC<Props> = ({ open, onOpenChange, task, onSa
               Cancel
             </Button>
             <Button type="submit" disabled={saving}>
-              {saving ? 'Saving…' : task ? 'Save task' : 'Add task'}
+              {saving ? <Loader2 className="animate-spin" aria-hidden="true" /> : null}
+              {saving ? 'Saving…' : task ? 'Save changes' : 'Add task'}
             </Button>
           </DialogFooter>
         </form>
