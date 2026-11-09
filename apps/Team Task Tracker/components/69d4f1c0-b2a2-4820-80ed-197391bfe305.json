@@ -1,0 +1,76 @@
+{
+  "id": "69d4f1c0-b2a2-4820-80ed-197391bfe305",
+  "name": "app",
+  "type": "LibraryComponent",
+  "pageId": "06d5682b-d532-4b0f-aa26-f465d344c731",
+  "parent": null,
+  "properties": {
+    "libraryId": {
+      "value": "bd5c5b29-e83b-45c0-aa91-e340b400eaa8"
+    },
+    "correlationId": {
+      "value": "ff8103a9-d27b-4fed-8c36-8c4031983ba4"
+    },
+    "libraryName": {
+      "value": "Team Task Tracker"
+    },
+    "componentName": {
+      "value": "App"
+    },
+    "codePage": {
+      "value": "{{true}}"
+    },
+    "routes": {
+      "value": "[{\"id\":\"tasks\",\"path\":\"/\",\"title\":\"Tasks\",\"pageId\":\"60eac977-3a4f-42a2-a104-556c64b66588\"},{\"id\":\"my-tasks\",\"path\":\"/my-tasks\",\"title\":\"My tasks\",\"pageId\":\"54c5bb31-e861-448d-9b90-b6c84d7c7fff\"}]"
+    },
+    "visibility": {
+      "value": "{{true}}"
+    }
+  },
+  "general": {},
+  "styles": {},
+  "generalStyles": {
+    "boxShadow": {
+      "value": "0px 0px 0px 0px #00000040"
+    }
+  },
+  "displayPreferences": {
+    "showOnDesktop": {
+      "value": "{{true}}"
+    },
+    "showOnMobile": {
+      "value": "{{true}}"
+    }
+  },
+  "validation": {},
+  "layouts": [
+    {
+      "id": "b390e612-d837-473f-b6f0-945621d82bd9",
+      "type": "desktop",
+      "top": 0,
+      "left": 0,
+      "width": 43,
+      "height": 100,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "69d4f1c0-b2a2-4820-80ed-197391bfe305",
+      "dimensionUnit": "count"
+    },
+    {
+      "id": "683504e7-9bac-4b56-be89-e5a77f6e9943",
+      "type": "mobile",
+      "top": 0,
+      "left": 0,
+      "width": 43,
+      "height": 100,
+      "widthPx": null,
+      "fillWidth": null,
+      "grow": null,
+      "minWidthPx": null,
+      "componentId": "69d4f1c0-b2a2-4820-80ed-197391bfe305",
+      "dimensionUnit": "count"
+    }
+  ]
+}

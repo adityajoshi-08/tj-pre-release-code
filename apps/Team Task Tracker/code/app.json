@@ -1,0 +1,20 @@
+{
+  "name": "Team Task Tracker",
+  "codePage": {
+    "handle": "home",
+    "name": "Home"
+  },
+  "routes": [
+    {
+      "id": "tasks",
+      "path": "/",
+      "title": "Tasks"
+    },
+    {
+      "id": "my-tasks",
+      "path": "/my-tasks",
+      "title": "My tasks"
+    }
+  ],
+  "appId": "ebc1ad04-4373-48a4-a010-a478091d43e4"
+}

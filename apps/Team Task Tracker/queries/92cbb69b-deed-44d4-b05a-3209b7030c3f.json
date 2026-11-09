@@ -1,0 +1,47 @@
+{
+  "id": "92cbb69b-deed-44d4-b05a-3209b7030c3f",
+  "name": "complete_task",
+  "options": {
+    "operation": "update_rows",
+    "parameters": [
+      {
+        "defaultValue": "",
+        "name": "id"
+      }
+    ],
+    "requestConfirmation": false,
+    "runOnDependencyChange": false,
+    "runOnPageLoad": false,
+    "showSuccessNotification": false,
+    "table_id": "c497a1e4-6057-49c7-b3f7-1632c111373a",
+    "update_rows": {
+      "columns": {
+        "0": {
+          "column": "status",
+          "value": "Done"
+        }
+      },
+      "where_filters": {
+        "0": {
+          "column": "id",
+          "operator": "eq",
+          "value": "{{parameters.id}}"
+        },
+        "1": {
+          "column": "status",
+          "operator": "eq",
+          "value": "In Progress"
+        }
+      }
+    },
+    "delete_rows": {
+      "limit": 1,
+      "order_column": "id",
+      "order_column_id": "4ec9c013-c038-4449-9b54-3d350b5830d3"
+    }
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "867fccb5-eeb5-4967-8c04-3c2597d53b0d",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}

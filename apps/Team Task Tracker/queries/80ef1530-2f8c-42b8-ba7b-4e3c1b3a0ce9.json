@@ -1,0 +1,35 @@
+{
+  "id": "80ef1530-2f8c-42b8-ba7b-4e3c1b3a0ce9",
+  "name": "delete_task",
+  "options": {
+    "delete_rows": {
+      "where_filters": {
+        "undefined": {
+          "value": "{{parameters.id}}",
+          "column": "id",
+          "columnId": "4ec9c013-c038-4449-9b54-3d350b5830d3",
+          "columnDataType": "",
+          "operator": "eq"
+        }
+      },
+      "order_column": "id",
+      "order_column_id": "4ec9c013-c038-4449-9b54-3d350b5830d3"
+    },
+    "operation": "delete_rows",
+    "parameters": [
+      {
+        "defaultValue": "",
+        "name": "id"
+      }
+    ],
+    "requestConfirmation": false,
+    "runOnDependencyChange": false,
+    "runOnPageLoad": false,
+    "showSuccessNotification": false,
+    "table_id": "c497a1e4-6057-49c7-b3f7-1632c111373a"
+  },
+  "dataSourceId": "f17075f1-986f-4ca6-a741-5895052f8e84",
+  "appVersionId": "867fccb5-eeb5-4967-8c04-3c2597d53b0d",
+  "kind": "tooljetdb",
+  "dataSourceType": "static"
+}
