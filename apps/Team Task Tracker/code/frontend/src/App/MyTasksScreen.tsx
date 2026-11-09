@@ -9,7 +9,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Progress } from '../components/ui/progress';
 import { Skeleton } from '../components/ui/skeleton';
-import { PriorityPill, StatusIcon, StatusPill } from '../components/status-pill';
+import { avatarTone, PriorityPill, StatusIcon, StatusPill } from '../components/status-pill';
 import { TaskFormDialog } from '../components/task-form-dialog';
 import { Toaster, useToast } from '../components/toaster';
 import { addDaysKey, dueKey, duePhrase, firstName, initials, todayKey } from '../lib/task-dates';
@@ -404,7 +404,7 @@ export const MyTasksScreen: React.FC = () => {
                             )}
                           >
                             <Avatar>
-                              <AvatarFallback className={cn(active && 'bg-primary text-primary-foreground')}>
+                              <AvatarFallback className={cn(active ? 'bg-primary text-primary-foreground' : avatarTone(entry.name))}>
                                 {initials(entry.name)}
                               </AvatarFallback>
                             </Avatar>
