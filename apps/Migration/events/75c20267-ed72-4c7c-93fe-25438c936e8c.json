@@ -1,0 +1,15 @@
+{
+  "id": "75c20267-ed72-4c7c-93fe-25438c936e8c",
+  "name": "Event #1",
+  "index": 0,
+  "event": {
+    "eventId": "onClick",
+    "message": "Hello world!",
+    "actionId": "show-alert",
+    "alertType": "info",
+    "component": "button1"
+  },
+  "sourceId": "dfda4eda-9528-4b28-aa6c-e1a0b40d872c",
+  "target": "component",
+  "appVersionId": "224908e9-822e-44e3-b30e-faaf21153f48"
+}
